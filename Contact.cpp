@@ -1,5 +1,55 @@
 #include "Contact.h"
 
+
+Contact::Contact(std::string first_name, std::string last_name, std::string mobile_number, std::string email_address, Address* address)		//Constructor
+{
+}
+	
+					//--------------------------------------Setter functions----------------------------//
+void Contact::setFirstName(string f_name)
+{
+	first_name = f_name;
+}
+void Contact::setLastName(string l_name)
+{
+	last_name = l_name;
+}
+void Contact::setMobileNumber(string mobile_no)
+{
+	mobile_number = mobile_no;
+}
+void Contact::setEmailAddress(string email)
+{
+	email_address = email;
+}
+void Contact::setAddress(Address* recieved_address)
+{
+	address = recieved_address->copy_address();
+}
+
+
+					//------------------------------------------Getter functions-------------------------//
+string Contact::getFirstName()
+{
+	return first_name;
+}
+string Contact::getLastName()
+{
+	return last_name;
+}
+string Contact::getMobileNumber()
+{
+	return mobile_number;
+}
+string Contact::getEmailAddress()
+{
+	return email_address;
+}
+Address* Contact::getAddress()
+{
+	return address->copy_address();
+}
+
 /*
 *	Implement a constructor that initializes all the Contact parts, including address. Call the setter to set values
 *	as they have the logic to check correct input
@@ -23,9 +73,6 @@
 *   For example: this.address.equals
 */
 
-Contact* Contact::copy_contact()
-{
-	/*
-		Return a new object(deep copy of "this"[due to Address pointer, which should also be copied])
-	*/
-}
+//Contact* Contact::copy_contact()
+//{
+//}
