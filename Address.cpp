@@ -1,5 +1,33 @@
 #include "Address.h"
 
+//Constructor
+Address::Address(std::string house, std::string street, std::string city, std::string country){}
+
+     //--------------------------------------Setter functions----------------------------//
+
+void Address::getHouse(std::string House)
+{
+	house = House;
+}
+
+void Address::getCity(std::string City)
+{
+	city = City; 
+}
+
+void Address::getCountry(std::string Country)
+{
+	country = Country;
+}
+
+void Address::get
+
+
+
+
+
+
+
 
 /*
 *	Implement a constructor that initializes all the address parts
