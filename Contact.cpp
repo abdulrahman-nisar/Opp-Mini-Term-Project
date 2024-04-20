@@ -81,5 +81,9 @@ Contact* Contact::copy_contact()
 
 bool Contact::equals(const Contact contact)	const		//Return 1 if two objects are equal
 {
-	if(first_name == contact.getFirstName()
+	if (first_name == contact.first_name && last_name == contact.last_name && mobile_number == contact.mobile_number && email_address == contact.email_address && address->equals(contact.address)
+	{
+		return 1;
+	}
+	return 0;
 }
