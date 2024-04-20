@@ -8,6 +8,6 @@ void inputContact(Contact& contact);		//This funtion will input values in a cont
 
 
 
-bool isStringOnlynumber(std::string& str);				//This functions will check the strings in which the user must enter numbers
+bool isStringOnlynumber(const string str);				//This functions will check the strings in which the user must enter numbers
 
-bool isStringOnlyAlphbets(std::string& str);			//This functions will check the strings in which the user must enter alphbets
+bool isStringOnlyAlphbets(const string str);			//This functions will check the strings in which the user must enter alphbets
