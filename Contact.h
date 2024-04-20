@@ -4,9 +4,10 @@
 #define BASIC_LIB
 	#include <iostream>
 	#include <string>
+	#include "Address.h"
 #endif // !BASIC_LIB
 
-#include "Address.h"
+
 
 
 class Contact {
