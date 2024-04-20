@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include <string>
-
 class Address {
 private:
 	std::string house;
