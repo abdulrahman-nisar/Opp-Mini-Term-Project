@@ -20,8 +20,29 @@ void Address::getCountry(std::string Country)
 	country = Country;
 }
 
-void Address::get
+void Address::getStreet(std::string Street)
+{
+	street = Street;
+}
 
+//--------------------------------------Getter functions----------------------------//
+string Address::getHouse() const
+{
+	return house;
+}
+string Address::getStreet() const
+{
+	return street;
+
+}
+string Address::getCity() const
+{
+	return city;
+}
+string Address::getCountry() const
+{
+	return country;
+}
 
 
 
