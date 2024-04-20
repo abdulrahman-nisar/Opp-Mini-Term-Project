@@ -2,11 +2,6 @@
 #include <iostream>
 #include <string>
 
-using std::cin;
-using std::cout;
-using std::string;
-using std::endl;
-
 class Address {
 private:
 	std::string house;
