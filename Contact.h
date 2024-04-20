@@ -1,10 +1,10 @@
 #pragma once
+#include "Address.h"
 
 #ifndef BASIC_LIB
 #define BASIC_LIB
 	#include <iostream>
 	#include <string>
-	#include "Address.h"
 #endif // !BASIC_LIB
 
 
