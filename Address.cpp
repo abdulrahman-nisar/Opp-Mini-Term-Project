@@ -5,22 +5,22 @@ Address::Address(std::string house, std::string street, std::string city, std::s
 
      //--------------------------------------Setter functions----------------------------//
 
-void Address::getHouse(std::string House)
+void Address::setHouse(std::string House)
 {
 	house = House;
 }
 
-void Address::getCity(std::string City)
+void Address::setCity(std::string City)
 {
 	city = City; 
 }
 
-void Address::getCountry(std::string Country)
+void Address::setCountry(std::string Country)
 {
 	country = Country;
 }
 
-void Address::getStreet(std::string Street)
+void Address::setStreet(std::string Street)
 {
 	street = Street;
 }
