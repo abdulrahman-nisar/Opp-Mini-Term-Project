@@ -1,14 +1,14 @@
 #include "OutsideFunctionsDefinitions.h"
 
 
-bool isStringOnlynumber(string& str)
+bool isStringOnlynumber(const string str)
 {
 	{
-		size_t length = strlen(str);
+		size_t length = str.length();
 
 		if (length < 11)
 		{
-			return 0;
+			return 1;
 		}
 		for (size_t i = 0; i < length; i++)
 		{
@@ -23,5 +23,5 @@ bool isStringOnlynumber(string& str)
 }
 bool isStringOnlyAlphbets(string& str)
 {
-
+	return 1;
 }

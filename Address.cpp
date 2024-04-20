@@ -69,9 +69,9 @@ string Address::getCountry() const
 *	Two addresses are equal if all the attributes of addresses are equal
 */
 
-bool Address::equals(const Address& address)
+bool Address::equals(Address* address) const
 {
-	if (city == address.city && house == address.house && street == address.street && country == address.country)
+	if ((city == address->city) && (house == address->house) && (street == address->street) && (country == address->country))
 	{
 		return true;
 	}

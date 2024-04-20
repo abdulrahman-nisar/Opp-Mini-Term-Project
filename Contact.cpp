@@ -76,7 +76,7 @@ Address* Contact::getAddress()
 
 Contact* Contact::copy_contact()
 {
-
+	
 }
 
 bool Contact::equals(const Contact& contact) const		//Return 1 if two objects are equal
