@@ -37,5 +37,5 @@ public:
 	string getLastName() const;
 	string getMobileNumber() const;
 	string getEmailAddress() const;
-	Address getAddress() const;
+	Address getAddress();
 };
