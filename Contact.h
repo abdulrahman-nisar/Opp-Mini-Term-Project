@@ -18,7 +18,7 @@ private:
 	Address *address;
 
 public:
-	bool equals(Contact contact);			//Return 1 if two objects are equal
+	bool equals(const Contact& contact) const;			//Return 1 if two objects are equal
 	Contact* copy_contact();			//It will return copy of a contact object
 
 	Contact() {}
