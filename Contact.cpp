@@ -76,7 +76,14 @@ Address* Contact::getAddress()
 
 Contact* Contact::copy_contact()
 {
-	
+	Contact* contact; 
+	contact = new Contact;
+	contact->first_name = this->first_name;
+	contact->last_name = this->last_name;
+	contact->mobile_number = this->mobile_number;
+	contact->email_address = this->email_address;
+	contact->address = this->address->copy_address();
+	return contact;
 }
 
 bool Contact::equals(const Contact& contact) const		//Return 1 if two objects are equal
