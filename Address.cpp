@@ -89,6 +89,8 @@ Address* Address::copy_address()
 {
 	Address* address;
 
+	address = new Address;
+
 	address->city = city;
 	address->country = country;
 	address->house = house;
