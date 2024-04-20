@@ -7,5 +7,6 @@ void inputContact(Contact& contact);		//This funtion will input values in a cont
 void displayContact(Contact& contact);		//This function will display the values of a contact object 
 
 
-void isStringOnlynumber(std::string& str);
-void isStringOnlyAlphbets(std::string& str);
+bool isStringOnlynumber(std::string& str);				//This functions will check the strings in which the user must enter numbers
+
+bool isStringOnlyAlphbets(std::string& str);			//This functions will check the strings in which the user must enter alphbets
