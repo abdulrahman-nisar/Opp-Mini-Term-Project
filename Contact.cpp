@@ -46,7 +46,7 @@ string Contact::getEmailAddress() const
 {
 	return email_address;
 }
-Address* Contact::getAddress() const
+Address* Contact::getAddress()
 {
 	return address->copy_address();
 }
