@@ -68,25 +68,35 @@ string Address::getCountry() const
 *	current object refered by (this pointer)
 *	Two addresses are equal if all the attributes of addresses are equal
 */
+
 bool Address::equals(const Address& address)
 {
-	/*
-	* Todo
-	*/
+	if (city == address.city && house == address.house && street == address.street && country == address.country)
+	{
+		return true;
+	}
+
 	return false;
 }
 
-void Address::print_address()
+void Address::print_address() const
 {
-	/*
-	*	Print address on one line as
-	*	House, Street, City, Country
-	*/
+	cout << "House:" << house << ".  Street:" << street << ". City:" << city << ". Country:" << country << ". " << endl;
+	
 }
 
-Address Address::copy_address()
+Address* Address::copy_address()
 {
-	/*
-		return a copy of this
-	*/
+	Address* address;
+
+	address = new Address;
+
+	address->city = city;
+	address->country = country;
+	address->house = house;
+	address->street = street;
+
+	return address;
+
+	
 }
