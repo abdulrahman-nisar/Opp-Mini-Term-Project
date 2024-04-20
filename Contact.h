@@ -33,9 +33,9 @@ public:
 
 
 	//Getters function
-	string getFirstName();
-	string getLastName();
-	string getMobileNumber();
-	string getEmailAddress();
-	Address getAddress();
+	string getFirstName() const;
+	string getLastName() const;
+	string getMobileNumber() const;
+	string getEmailAddress() const;
+	Address getAddress() const;
 };
