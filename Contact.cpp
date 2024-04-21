@@ -94,3 +94,20 @@ bool Contact::equals(const Contact& contact) const		//Return 1 if two objects ar
 	}
 	return false;
 }
+
+
+void Contact::printContact()			//This function will print a contact
+{
+
+	cout << first_name << " " << last_name << " " << mobile_number << " " << email_address << endl;
+	address->print_address();
+
+
+
+
+
+
+
+
+
+}

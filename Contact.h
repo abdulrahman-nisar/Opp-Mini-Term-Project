@@ -21,6 +21,7 @@ private:
 public:
 	bool equals(const Contact& contact) const;			//Return 1 if two objects are equal
 	Contact* copy_contact();			//It will return copy of a contact object
+	void printContact();			//This function will print a contact
 
 	Contact(){}
 	Contact(std::string first_name, std::string last_name, std::string mobile_number, std::string email_address, Address *address);

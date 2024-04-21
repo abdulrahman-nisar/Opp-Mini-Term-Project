@@ -9,12 +9,13 @@ bool isStringOnlynumber(const string str)			//CHecking a string that must contai
 	{
 		if (!(isdigit(str[i])))		//Checking that each character of string is a digit
 		{
+			cout << "Wrong Input. Only Digits are allowed. Enter again:-\n";
 			return 1;
 		}
 	}
 	return 0;
 }
-bool isStringOnlyAlphbets(const string str)		//CHecking a string that must contain only alphabets
+bool isStringOnlyAlphabets(const string str)		//CHecking a string that must contain only alphabets
 {
 	size_t length = str.length();				//Getting length of string
 
@@ -22,6 +23,7 @@ bool isStringOnlyAlphbets(const string str)		//CHecking a string that must conta
 	{
 		if (!(isalpha(str[i])))				//Cheking if the character at every index is not an character
 		{
+			cout << "Wrong Input. Only Alphbets are allowed. Enter again:-\n";
 			return 1;
 		}
 	}
@@ -33,9 +35,34 @@ bool isLengthOfMobileNumberIs11(const string str)		//This function will check th
 {
 	if (str.length() != 11)
 	{
+		cout << "The Mobile Number Length must be 11 digits\n";
 		return 1;
 	}
 	return 0;
+}
+
+
+bool isEmpty(const string str)							//This functions will check for an empty string
+{
+	if (str.empty())
+	{
+		cout<<"Field is Empty. Enter again:\n"
+		return 1;
+	}
+	return 0;
+}
+
+
+
+void checkInput(int& n)	//This function will check for negative or invalid input in integer variable
+{
+	while (cin.fail() || n == INT_MAX || n == INT_MIN || n < 0)
+	{
+		cin.clear();
+		cin.ignore();
+		cout << "Wrong Input. Enter a positive Number: ";
+		cin >> n;
+	}
 }
 
 

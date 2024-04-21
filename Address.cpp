@@ -1,7 +1,10 @@
 #include "Address.h"
 
 //Constructor
-Address::Address(std::string house, std::string street, std::string city, std::string country){}
+Address::Address(std::string house, std::string street, std::string city, std::string country) :this->house(house), this->street(street), this->city(city), this->country(country)
+{
+
+}
 
      //--------------------------------------Setter functions----------------------------//
 
