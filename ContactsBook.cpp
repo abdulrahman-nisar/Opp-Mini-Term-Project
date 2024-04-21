@@ -2,6 +2,15 @@
 
 void ContactsBook::add_contact(const Contact& contact)
 {
+	if (contact_count == size_of_contacts)
+	{
+		resize_list();
+	}
+	else
+	{
+		contacts_list->
+
+	}
 	/*
 		- Check if the list is full, if it is full call the resize function
 		- If list is not full add the contact to the end of the array 
@@ -75,8 +84,9 @@ Contact* ContactsBook::search_contact(const Address& address)
 	return nullptr;
 }
 
-ContactsBook::ContactsBook(int size_of_list)
+ContactsBook::ContactsBook(int size_of_list):size_of_contacts(size_of_list),contacts_count(0)
 {
+	contacts_list = new contact[size_of_list];
 	/*
 	*	Initialize the contacts_list array, also initialize the size and count members accordingly
 	*/
