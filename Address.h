@@ -1,6 +1,5 @@
 #pragma once
-#include <iostream>
-#include <string>
+#include "Error Checking Functions.h"
 using namespace std;
 class Address {
 private:

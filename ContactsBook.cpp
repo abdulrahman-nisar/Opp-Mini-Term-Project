@@ -2,13 +2,13 @@
 
 void ContactsBook::add_contact(const Contact& contact)
 {
-	if (contact_count == size_of_contacts)
+	if (contacts_count == size_of_contacts)
 	{
 		resize_list();
 	}
 	else
 	{
-		contacts_list->
+		//contacts_list->
 
 	}
 	/*
@@ -86,7 +86,7 @@ Contact* ContactsBook::search_contact(const Address& address)
 
 ContactsBook::ContactsBook(int size_of_list):size_of_contacts(size_of_list),contacts_count(0)
 {
-	contacts_list = new contact[size_of_list];
+	contacts_list = new Contact[size_of_list];
 	/*
 	*	Initialize the contacts_list array, also initialize the size and count members accordingly
 	*/

@@ -1,6 +1,10 @@
 
 #include "ContactsBook.h"
 
+int main()
+{
+
+}
 /* hello friends my name is danial
 * 
 * 

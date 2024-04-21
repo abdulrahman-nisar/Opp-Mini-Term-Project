@@ -3,7 +3,7 @@
 
 Contact::Contact(std::string first_name, std::string last_name, std::string mobile_number, std::string email_address, Address* address)		//Constructor
 {
-	
+		
 }
 	
 					//--------------------------------------Setter functions----------------------------//
@@ -25,7 +25,7 @@ void Contact::setEmailAddress(string email)
 }
 void Contact::setAddress(Address* recieved_address)
 {
-	address = recieved_address->copy_address();
+	address = recieved_address;
 }
 
 

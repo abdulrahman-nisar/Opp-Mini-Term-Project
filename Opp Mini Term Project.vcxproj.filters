@@ -27,7 +27,7 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OutsideFunctionsImplementations.cpp">
+    <ClCompile Include="Error Checking Functions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,7 +41,10 @@
     <ClInclude Include="ContactsBook.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="OutsideFunctionsDefinitions.h">
+    <ClInclude Include="Error Checking Functions.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Functions Only Main Function Can Use.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
