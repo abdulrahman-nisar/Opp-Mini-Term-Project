@@ -20,7 +20,7 @@ void inputContact(Contact& contact)
 
 	do
 	{
-		cout << "Enter Mobile NUmber: ";
+		cout << "Enter Mobile Number: ";
 		getline(cin, mobile_number);
 	} while (isStringOnlyNumbers(mobile_number) || isEmpty(mobile_number) || isLengthOfMobileNumberIs11(mobile_number));
 

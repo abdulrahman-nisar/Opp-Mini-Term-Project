@@ -8,8 +8,9 @@ void ContactsBook::add_contact(const Contact& contact)
 	}
 	else
 	{
-		//contacts_list->
-
+		inputContact(contact);
+		contacts_count++;
+		//i want to return 1 so i will make it return type bool or not?
 	}
 	/*
 		- Check if the list is full, if it is full call the resize function
@@ -22,8 +23,10 @@ void ContactsBook::add_contact(const Contact& contact)
 	*/
 }
 
-int ContactsBook::total_contacts()
+int ContactsBook::total_contacts() const
 {
+
+	return contacts_count;
 	/*
 	*	Return the total contacts currently stored
 	*/
@@ -31,11 +34,16 @@ int ContactsBook::total_contacts()
 	/*
 	*	Remove this return -1; before writing your code
 	*/
-	return -1;
+	//return -1;
 }
 
-bool ContactsBook::full()
+bool ContactsBook::full() const
 {
+	if(contacts_count == size_of_contacts)
+	{
+		return true;
+	}
+	return false;
 	/*
 	* Return true if list is full, false otherwise
 	*/
@@ -43,13 +51,31 @@ bool ContactsBook::full()
 	/*
 	*	Remove this return false; before writing your code
 	*/
-	return false;
+	
 }
 
 void ContactsBook::resize_list()
 {
+	size_of_contacts = 2 * size_of_contacts;
+
+	Contact* temp_contacts_list = new Contact[size_of_contacts];
+
+
+	for (int i = 0; i < size_of_contacts / 2; i++)
+	{
+		temp_contacts_list[i].setFirstName(contacts_list[i].getFirstName());
+		temp_contacts_list[i].setLastName(contacts_list[i].getLastName());
+		temp_contacts_list[i].setEmailAddress(contacts_list[i].getEmailAddress());
+		temp_contacts_list[i].setMobileNumber(contacts_list[i].getMobileNumber());
+		temp_contacts_list[i].setAddress(contacts_list[i].getAddress());
+
+	}
+	
+	delete[] contact_list;
+	contact_list = temp_contacts_list;
+
 	/*
-	*	Here you will resize the contact list, see example code given in lab manual to see how to resize arrays
+	//*	Here you will resize the contact list, see example code given in lab manual to see how to resize arrays
 	*	You will allocate a temporary new array of double the current size and copy the contacts from 
 	*       previous array to this array one by one, get the copy of each contact using copy_contact 
 	*       function of Contact class
