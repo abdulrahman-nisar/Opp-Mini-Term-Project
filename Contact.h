@@ -5,12 +5,14 @@
 #define BASIC_LIB
 	#include <iostream>
 	#include <string>
+    #include<fstream>
 #endif // !BASIC_LIB
 
 
 
 
-class Contact {
+class Contact 
+{
 private:
 	std::string first_name;
 	std::string last_name;

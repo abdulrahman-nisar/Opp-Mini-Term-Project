@@ -164,6 +164,43 @@ void ContactsBook::load_from_file(std::string file_name)
 
 void ContactsBook::save_to_file(std::string file_name) 
 {
+	//Open a file for writing
+	ofstream output_file(file_name);
+
+	//Check if file is opened or not
+	if (!output_file)
+	{
+		cout << "Error in opening file for wirting!" << endl;
+		return;
+	}
+
+	//Writing contacts_count in first line of file
+	output_file << contacts_count << endl;
+
+
+	//Write each contacts to the file
+	for (int i = 0; i < contacts_count; i++)
+	{
+
+		//Writing contacts attributes in file
+		output_file << contacts_list[i].getFirstName() << ","
+			<< contacts_list[i].getLastName() << ","
+			<< contacts_list[i].getMobileNumber() << ","
+			<< contacts_list[i].getEmailAddress() << endl;
+
+
+		//Writing address attribute	
+		output_file << contacts_list[i].getAddress()->getHouse() << ","
+			<< contacts_list[i].getAddress()->getStreet() << ","
+			<< contacts_list[i].getAddress()->getCity() << ","
+			<< contacts_list[i].getAddress()->getCountry() << endl;
+
+	}
+
+	//close the file
+	output_file.close();
+
+	cout << endl << "Contacts have been stored to the file." << endl;
 	/*
 	*	In this function you will store all the contacts to a file
 	*	On first line store contacts_count

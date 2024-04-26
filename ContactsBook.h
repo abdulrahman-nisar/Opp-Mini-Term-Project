@@ -34,7 +34,7 @@ public:
 	*  This function loads contacts from the given file (see details in ContactsBook.cpp)
 	*/
 	void load_from_file(std::string file_name);
-	void save_to_file(std::string file_name);
+	void save_to_file(std::string file_name);//done
 
 private:
 	bool full() const;//done
