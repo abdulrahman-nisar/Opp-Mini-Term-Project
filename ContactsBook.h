@@ -20,6 +20,7 @@ public:
 	void add_contact(const Contact& contact);//done
 	int total_contacts() const;//done
 
+	//search all functions are done
 	Contact* search_contact(std::string first_name, std::string last_name);
 	Contact* search_contact(std::string phone);
 	Contact* search_contact(const Address& address);

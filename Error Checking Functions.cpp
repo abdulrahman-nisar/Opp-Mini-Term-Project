@@ -35,7 +35,7 @@ bool isLengthOfMobileNumberIs11(const string str)		//This function will check th
 {
 	if (str.length() != 11)
 	{
-		cout << "The Mobile Number Length must be 11 digits\n";
+		cout << "The Mobile Number Length must be 11 digits.Enter again:-\n";
 		return 1;
 	}
 	return 0;
@@ -46,7 +46,7 @@ bool isEmpty(const string str)							//This functions will check for an empty st
 {
 	if (str.empty())
 	{
-		cout<<"Field is Empty. Enter again:\n"
+		cout << "Field is Empty. Enter again:\n";
 		return 1;
 	}
 	return 0;

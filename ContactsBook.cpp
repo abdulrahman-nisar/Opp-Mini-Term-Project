@@ -87,27 +87,59 @@ void ContactsBook::resize_list()
 
 Contact* ContactsBook::search_contact(std::string first_name, std::string last_name)
 {
+	for (int i = 0; i < contacts_count; i++)
+	{
+		if (contacts_list[i].getFirstName() == first_name && contacts_list[i].getLastName() == last_name)
+		{
+			return contacts_list[i].copy_contact();
+		}
+	}
+
+	return nullptr;//if no contact is found of first_name and last_name
+
 	/*
 	*	In all search functions perform the searching according the given parameter and return a copy of the contact using copy func
 	*	Remove this return nullptr; before writing your code
 	*/
-	return nullptr;
+	
 }
 
 Contact* ContactsBook::search_contact(std::string phone)
 {
+	for (int i = 0; i < contacts_count; i++)
+	{
+		if ((contacts_list[i].getMobileNumber) == (phone))
+		{
+			return contacts_list[i].copy_contact();
+		}
+	}
+
+
+	return nullptr;// if no contact is found of that phone number
 	/*
 	*	Remove this return nullptr; before writing your code
 	*/
-	return nullptr;
+	
 }
 
 Contact* ContactsBook::search_contact(const Address& address)
 {
+	for (int i = 0; i < contacts_count; i++)
+	{
+		if (contacts_list[i].getAddress()->getCity() == address.getCity()
+			&& contacts_list[i].getAddress()->getCountry() == address.getCountry()
+			&& contacts_list[i].getAddress()->getHouse() == address.getHouse()
+			&& contacts_list[i].getAddress()->getStreet == address.getStreet())
+		{
+			return contacts_list[i].copy_contact();
+		}
+	}
+
+	return nullptr;//if no any contact is found of address
 	/*
 	*	Remove this return nullptr; before writing your code
 	*/
-	return nullptr;
+	
 }
 
 ContactsBook::ContactsBook(int size_of_list):size_of_contacts(size_of_list),contacts_count(0)

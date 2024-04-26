@@ -104,10 +104,4 @@ void Contact::printContact()			//This function will print a contact
 
 
 
-
-
-
-
-
-
 }
