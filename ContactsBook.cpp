@@ -2,16 +2,15 @@
 
 void ContactsBook::add_contact(const Contact& contact)
 {
-	if (contacts_count == size_of_contacts)
+	if (full())
 	{
 		resize_list();
 	}
-	else
-	{
 		inputContact(contacts_list[contacts_count]);
 		contacts_count++;
+
+
 		//i want to return 1 so i will make it return type bool or not?
-	}
 	/*
 		- Check if the list is full, if it is full call the resize function
 		- If list is not full add the contact to the end of the array 

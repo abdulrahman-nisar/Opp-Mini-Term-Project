@@ -56,7 +56,7 @@ bool isEmpty(const string str)							//This functions will check for an empty st
 
 void checkInput(int& n)	//This function will check for negative or invalid input in integer variable
 {
-	while (cin.fail() || n == INT_MAX || n == INT_MIN || n < 0)
+	while (cin.fail() || n == INT_MAX || n == INT_MIN || n <= 0)
 	{
 		cin.clear();
 		cin.ignore();

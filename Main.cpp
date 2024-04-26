@@ -1,3 +1,14 @@
+/*I have removed the else part in add contact functions of ContactsBook.cpp. BEacuse we onl have to check size
+and resize_list() only if requaired. But adding a new contact is compulsory. If we put the else part the new
+contact will not be added and only the list will be resized. It will create a logical error.
+Also I have Called the full() function in if statement beacuse it is checking the if the list is full or not.*/
+
+
+
+
+
+
+
 #include "ContactsBook.h"
 
 int main()
