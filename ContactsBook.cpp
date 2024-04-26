@@ -151,6 +151,17 @@ ContactsBook::ContactsBook(int size_of_list):size_of_contacts(size_of_list),cont
 
 void ContactsBook::print_contacts_sorted(std::string choice)
 {
+	
+	if (checkSortingChoice(choice) == 1)
+	{
+		sort_contacts_list(contacts_list, choice);
+
+		for (int i = 0; i < contacts_count; i++)
+		{
+			contacts_list[i].printContact();
+		}
+	}
+	
 	/*
 	*	Create a copy of this->contacts_list array here (do it by creating a new function that returns copy)
 	*	Call the sort function sort_contacts_list to sort the newly created copy
@@ -163,6 +174,36 @@ void ContactsBook::print_contacts_sorted(std::string choice)
 
 void ContactsBook::sort_contacts_list(Contact *contacts_list, std::string choice)
 {
+	string name1, name2;		//Thses variables will store the first/last nsmes of both comparing contacts
+	string temp;		//used in swapping
+	for (int i = 0; i < contacts_count-1; i++)
+	{
+		for (int j = 1; j < contacts_count; j++)
+		{
+			if (choice == "first_name")		//If the user choice is first name it will work other wise the else part
+			{
+				name1 = contacts_list[i].getFirstName();
+				name2 = contacts_list[j].getFirstName();
+				if (name1[0] > name2[0])
+				{
+					
+					contacts_list[i].setFirstName(name2);
+					contacts_list[j].setFirstName(name1);
+				}
+			}
+			else if (choice == "last_name")		//This part works if the user wants to sort by last name
+			{
+				name1 = contacts_list[i].getLastName();
+				name2 = contacts_list[j].getLastName();
+				if (name1[0] > name2[0])
+				{
+
+					contacts_list[i].setLastName(name2);
+					contacts_list[j].setLastName(name1);
+				}
+			}
+		}
+	}
 	/*
 		You should not duplicate the code to sort based on choices
 		Follow the strategy provided in manual/tutorial to avoid duplicating the code (Section B & E only)
@@ -172,6 +213,22 @@ void ContactsBook::sort_contacts_list(Contact *contacts_list, std::string choice
 
 void ContactsBook::merge_duplicates() 
 {
+	for (int i = 0; i < contacts_count-1; i++)
+	{
+		for (int j = i + 1; j < contacts_count; j++)
+		{
+			if (contacts_list[i].equals(contacts_list[j]))
+			{
+				contacts_list[j].setFirstName("Not/Available");
+				contacts_count--;
+			}
+		}
+	}
+	for (int i = 0; i < contacts_count; i++)
+	{
+		;
+	}
+	
 	// Implement this function that finds and merges all the duplicates
 	// Duplicate means exact equal
 	// If there are three copies of a Contact, then only one should remain
@@ -183,6 +240,41 @@ void ContactsBook::merge_duplicates()
 
 void ContactsBook::load_from_file(std::string file_name) 
 {
+	
+	ifstream input_file(file_name);
+
+
+	if (!input_file)
+	{
+
+		cout << "Eror in opening file for leading.\n";
+		return;
+	}
+	string first_name, last_name, mobile_number, email_address;
+	string house, street, city, country;
+	input_file >> contacts_count;
+	size_of_contacts = contacts_count+5;
+	contacts_list = new Contact[size_of_contacts];
+
+	for (int i = 0; !(input_file.eof()); i++)
+	{
+		input_file >> first_name >> last_name >> mobile_number >> email_address;
+		input_file >> house >> street >> city >> country;
+		contacts_list[i].setFirstName(first_name);
+		contacts_list[i].setLastName(last_name);
+		contacts_list[i].setMobileNumber(mobile_number);
+		contacts_list[i].setEmailAddress(email_address);
+
+		contacts_list[i].getAddress()->setHouse(house);
+		contacts_list[i].getAddress()->setStreet(street);
+		contacts_list[i].getAddress()->setCity(city);
+		contacts_list[i].getAddress()->setCity(country);
+
+	}
+
+	input_file.close();
+
+	
 	/*
 	*	Read contacts back from file in the same format	
 	*	Read the contacts_count, and run a loop for this contacts_count and read the 
@@ -214,16 +306,16 @@ void ContactsBook::save_to_file(std::string file_name)
 	{
 
 		//Writing contacts attributes in file
-		output_file << contacts_list[i].getFirstName() << ","
-			<< contacts_list[i].getLastName() << ","
-			<< contacts_list[i].getMobileNumber() << ","
+		output_file << contacts_list[i].getFirstName() << "\t"
+			<< contacts_list[i].getLastName() << "\t"
+			<< contacts_list[i].getMobileNumber() << "\t"
 			<< contacts_list[i].getEmailAddress() << endl;
 
 
 		//Writing address attribute	
-		output_file << contacts_list[i].getAddress()->getHouse() << ","
-			<< contacts_list[i].getAddress()->getStreet() << ","
-			<< contacts_list[i].getAddress()->getCity() << ","
+		output_file << contacts_list[i].getAddress()->getHouse() << "\t"
+			<< contacts_list[i].getAddress()->getStreet() << "\t"
+			<< contacts_list[i].getAddress()->getCity() << "\t"
 			<< contacts_list[i].getAddress()->getCountry() << endl;
 
 	}

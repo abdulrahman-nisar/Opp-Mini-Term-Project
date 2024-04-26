@@ -25,7 +25,7 @@ void Contact::setEmailAddress(string email)
 }
 void Contact::setAddress(Address* recieved_address)
 {
-	address = recieved_address;
+	address = recieved_address->copy_address();
 }
 
 
@@ -48,7 +48,7 @@ string Contact::getEmailAddress() const
 }
 Address* Contact::getAddress()
 {
-	return address->copy_address();
+	return address;
 }
 
 /*

@@ -66,3 +66,12 @@ void checkInput(int& n)	//This function will check for negative or invalid input
 }
 
 
+bool checkSortingChoice(const string str)		//This will check user choice for sorting
+{
+	if (str != "first_name" && str != "last_name")
+	{
+		cout << "Wrong Choice\n";
+		return 0;
+	}
+	return 1;
+}
