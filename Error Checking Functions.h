@@ -5,7 +5,7 @@ using namespace std;
 
 bool isLengthOfMobileNumberIs11(const string str);		//This function will check that the lenght of mobile number is 11
 
-bool isStringOnlynumber(const string str);				//This functions will check the strings in which the user must enter numbers
+bool isStringOnlyNumbers(const string str);				//This functions will check the strings in which the user must enter numbers
 
 bool isStringOnlyAlphabets(const string str);			//This functions will check the strings in which the user must enter alphbets
 

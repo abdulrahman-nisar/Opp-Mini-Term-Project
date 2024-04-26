@@ -8,7 +8,7 @@ void ContactsBook::add_contact(const Contact& contact)
 	}
 	else
 	{
-		inputContact(contact);
+		inputContact(contacts_list[contacts_count]);
 		contacts_count++;
 		//i want to return 1 so i will make it return type bool or not?
 	}
@@ -71,8 +71,8 @@ void ContactsBook::resize_list()
 
 	}
 	
-	delete[] contact_list;
-	contact_list = temp_contacts_list;
+	delete[] contacts_list;
+	contacts_list = temp_contacts_list;
 
 	/*
 	//*	Here you will resize the contact list, see example code given in lab manual to see how to resize arrays
@@ -108,7 +108,7 @@ Contact* ContactsBook::search_contact(std::string phone)
 {
 	for (int i = 0; i < contacts_count; i++)
 	{
-		if ((contacts_list[i].getMobileNumber) == (phone))
+		if ((contacts_list[i].getMobileNumber()) == phone)
 		{
 			return contacts_list[i].copy_contact();
 		}
@@ -129,7 +129,7 @@ Contact* ContactsBook::search_contact(const Address& address)
 		if (contacts_list[i].getAddress()->getCity() == address.getCity()
 			&& contacts_list[i].getAddress()->getCountry() == address.getCountry()
 			&& contacts_list[i].getAddress()->getHouse() == address.getHouse()
-			&& contacts_list[i].getAddress()->getStreet == address.getStreet())
+			&& contacts_list[i].getAddress()->getStreet() == address.getStreet())
 		{
 			return contacts_list[i].copy_contact();
 		}

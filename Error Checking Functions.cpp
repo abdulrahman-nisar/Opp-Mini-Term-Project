@@ -1,7 +1,7 @@
 #include "Error Checking Functions.h"
 
 
-bool isStringOnlynumber(const string str)			//CHecking a string that must contain only digits
+bool isStringOnlyNumbers(const string str)			//CHecking a string that must contain only digits
 {
 	size_t length = str.length();			//Getting length of string
 
