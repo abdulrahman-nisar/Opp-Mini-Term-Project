@@ -59,7 +59,7 @@ void checkInput(int& n)	//This function will check for negative or invalid input
 	while (cin.fail() || n == INT_MAX || n == INT_MIN || n <= 0)
 	{
 		cin.clear();
-		cin.ignore();
+		cin.ignore(1000,'\n');
 		cout << "Wrong Input. Enter a positive Number: ";
 		cin >> n;
 	}
@@ -68,7 +68,7 @@ void checkInput(int& n)	//This function will check for negative or invalid input
 
 bool checkSortingChoice(const int choice)		//This will check user choice for sorting
 {
-	if (choice != 1 && choice != 0)
+	if (choice != 1 && choice != 2)
 	{
 		cout << "Wrong Choice\n";
 		return 0;

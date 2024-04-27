@@ -11,6 +11,13 @@ Contact::Contact(std::string first_name, std::string last_name, std::string mobi
 	setEmailAddress(email_address);
 	setAddress(address);
 }
+Contact::~Contact()
+{
+	if (address != nullptr)
+	{
+		delete address;
+	}
+}
 	
 					//--------------------------------------Setter functions----------------------------//
 void Contact::setFirstName(string f_name)
@@ -105,10 +112,12 @@ void Contact::swapContact(Contact& contact)			//This is used to swap two contact
 	Contact temp;
 	temp.copy_contact(*this);
 	delete this->address;
+	this->address = nullptr;
 	this->copy_contact(contact);
 	delete contact.address;
+	contact.address = nullptr;
 	contact.copy_contact(temp);
-	delete temp.address;
+	
 }
 
 void Contact::printContact()			//This function will print a contact

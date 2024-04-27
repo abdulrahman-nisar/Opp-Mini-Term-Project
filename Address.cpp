@@ -96,10 +96,10 @@ Address* Address::copy_address()
 	Address* address;
 
 	address = new Address;
-	address->city = city;
-	address->country = country;
-	address->house = house;
-	address->street = street;
+	address->city = this->city;
+	address->country = this->country;
+	address->house = this->house;
+	address->street = this->street;
 
 	return address;
 
