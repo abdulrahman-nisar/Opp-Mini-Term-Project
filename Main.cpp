@@ -10,186 +10,176 @@ but we want to resisze it mltiple time at different point. From now on we will p
 iterates until contacts_count*/
 
 
-
-
-
-
-
 #include "ContactsBook.h"
 
 int main()
 {
-	//cout << "<---------Welcome to the ContactsBook Application----------->" << endl;
+	cout << "<---------Welcome to the ContactsBook Application----------->" << endl;
 
-	//int choice,size;
-	//string file_name, string_choice, phone_number;
+	int choice,size;
+	string file_name = "Null", string_choice = "Null", phone_number = "Null", first_name = "Null", last_name = "Null";
+	ContactsBook* contacts_book = nullptr;
 
-	//while (1)
-	//{
-	//	cout << "<---------Menu of ContactsBook Application--------->" << endl
-	//		<< "1. Create a contacts list from given size." << endl
-	//		<< "2. Add New Contact." << endl
-	//		<< "3. Merge Duplicates." << endl
-	//		<< "4. Store To File." << endl
-	//		<< "5. Load from file." << endl
-	//		<< "6. Print Contacts Sorted." << endl
-	//		<< "7. Print Contacts." << endl
-	//		<< "8. Search Contacts." << endl
-	//		<< "9. Display Cout of Contacts." << endl
-	//		<< "10. Exit." << endl << endl;
-	//	cin >> choice;
+	while (1)
+	{
+		displayContactBookMenu();
+		cin >> choice;
 
-	//	checkInput(choice);//for error checking
+		checkInput(choice);//for error checking
 
-	//	if (choice == 1)//check if already contact list is created or not
-	//	{
-	//		cout << "You already created contacts list from given size." << endl;
-	//		continue;
-	//	}
+		if (choice == 1)//check if already contact list is created or not
+		{
+			cout << "You already created contacts list from given size." << endl;
+			continue;
+		}
 
-	//	switch (choice)
-	//	{
+		switch (choice)
+		{
 
-	//	case 1:
-	//		cout << "Enter the size of contacts:" << endl;
-	//		cin >> size;
-	//		checkInput(size);
-	//		ContactsBook contacts_book(size);
-	//		break;
+		case 1:
 
-	//	case 2:
-	//		//ambhiguity in this case
-	//		//contacts_book.add_contact
+			cout << "Enter the size of contacts:" << endl;
+			cin >> size;
+			checkInput(size);
+			contacts_book = new ContactsBook(size);
 
-	//		break;
-	//	case 3:
+			break;
 
-	//		contacts_book.merge_duplicates();
+		case 2:
+			contacts_book->add_contact();
 
-	//		break;
-	//	case 4:
-	//		cout << "Enter the file name to store the contacts list:" << endl;
-	//		do
-	//		{
-	//			getline(cin, file_name);
+			break;
+		case 3:
 
-	//		} while (isStringOnlyAlphabets(file_name) || isEmpty(file_name));
-	//			
-	//
-	//		contacts_book.save_to_file(file_name);
+			contacts_book->merge_duplicates();
 
-	//		break;
+			break;
+		case 4:
+			cout << "Enter the file name to store the contacts list:" << endl;
+			do
+			{
+				getline(cin, file_name);
 
-	//	case 5:
+			} while (isStringOnlyAlphabets(file_name) || isEmpty(file_name));
+				
+	
+			contacts_book->save_to_file(file_name);
 
-	//		cout << "Enter the file name to load the contacts list:" << endl;
-	//		do
-	//		{
-	//			getline(cin, file_name);
+			break;
 
-	//		} while (isStringOnlyAlphabets(file_name) || isEmpty(file_name));
-	//		
-	//		contacts_book.load_from_file(file_name);
-	//		
-	//		break;
+		case 5:
 
-	//	case 6:
-	//		do
-	//		{
-	//			cout << "1. Sort by first name." << endl
-	//				<< "2. Sort by last name." << endl;
+			cout << "Enter the file name to load the contacts list:" << endl;
+			do
+			{
+				getline(cin, file_name);
 
-	//			getline(cin, string_choice);
+			} while (isStringOnlyAlphabets(file_name) || isEmpty(file_name));
+			
+			contacts_book->load_from_file(file_name);
+			
+			break;
 
-	//		} while (isStringOnlynumber(string_choice) || isEmpty(string_choice));
+		case 6:
+			
+				cout << "1. Sort by first name." << endl
+					<< "2. Sort by last name." << endl;
 
-	//			contacts_book.print_contacts_sorted(string_choice);
+				cin >> choice;
 
-	//		break;
+				checkInput(choice);//Check for error
+	
+				contacts_book->print_contacts_sorted(choice);
 
-	//	case 7:
-	//		//in this case we have to print contacts but their is not any function
-	//		//to print contacts
-	//		break;
+			break;
 
-	//	case 8:
-	//		do
-	//		{
-	//			cout << "Enter the choice how you want to search the contact:" << endl
-	//				<< "1. Search contact by First_Name and Last_Name." << endl
-	//				<< "2. Search contact by Phone_Number." << endl
-	//				<< "3. Search contact by Address." << endl;
-	//			cin >> choice;
-	//			checkInput(choice);//for error checking
-	//			switch (choice)
-	//			{
-	//			
-	//			case 1:
-	//				string first_name, last_name;
+		case 7:
 
-	//				cout << "Enter the first name of the contact to search:" << endl;
-	//				do
-	//				{
-	//					getline(cin, first_name);
+			contacts_book->displayContacts();
+			
+			break;
 
-	//				} while (isStringOnlyAlphabets(first_name) || isEmpty(first_name));
-	//				
+		case 8:
+			do
+			{
+				displaySearchMenu();
+				cin >> choice;
 
-	//				cout << "Enter the last name of the contact to search:" << endl;
-	//				do
-	//				{
-	//					getline(cin, last_name);
+				checkInput(choice);//for error checking
 
-	//				} while (isStringOnlyAlphabets(last_name) || isEmpty(last_name));
+				switch (choice)
+				{
+				
+				case 1:
 
-	//				
-	//			contacts_book.search_contact(first_name, last_name)->printContact();
+					cout << "Enter the first name of the contact to search:" << endl;
+					do
+					{
+						getline(cin, first_name);
 
-	//				break;
+					} while (isStringOnlyAlphabets(first_name) || isEmpty(first_name));
+					
 
-	//			case 2:
+					cout << "Enter the last name of the contact to search:" << endl;
+					do
+					{
+						getline(cin, last_name);
 
-	//				cout << "Enter the phone number of the contact to search:" << endl;
-	//				do
-	//				{
-	//					getline(cin, phone_number);
+					} while (isStringOnlyAlphabets(last_name) || isEmpty(last_name));
 
-	//				} while (isLengthOfMobileNumberIs11(phone_number) || isEmpty(phone_number));
-	//				
+					
+					contacts_book->search_contact(first_name, last_name)->printContact();
 
-	//				contacts_book.search_contact(phone_number)->printContact();
+					break;
 
-	//				break;
+				case 2:
 
-	//			case 3:
-	//				//how to implement this?
-	//				//contacts_book.search_contact();
+					cout << "Enter the phone number of the contact to search:" << endl;
+					do
+					{
+						getline(cin, phone_number);
 
-	//				break;
-	//			default:
-	//				cout << "Your Input is wrong!Enter Again:" << endl;
-	//			}
+					} while (isLengthOfMobileNumberIs11(phone_number) || isEmpty(phone_number));
+					
 
-	//		} while (!(choice <= 3));
+					contacts_book->search_contact(phone_number)->printContact();
 
-	//		break;
+					break;
 
-	//	case 9:
-	//		cout<<"Count of Contacts till now is "<<contacts_book.total_contacts()<<"."<<endl;
-	//		break;
+				case 3:
+					
+					contacts_book->search_contact(inputAddress());
 
-	//	case 10:
-	//	exit(0);
-	//		break;
+					break;
 
-	//	default:
-	//		cout << "Wrong input enter choice again!" << endl << endl;
+				default:
+
+					cout << "Your Input is wrong!Enter Again:" << endl;
+				}
+
+			} while (!(choice <= 3));
+
+			break;
+
+		case 9:
+			cout << "Count of Contacts till now is " << contacts_book->total_contacts() << "." << endl;
+			break;
+
+		case 10:
+
+		exit(0);
+
+			break;
+
+		default:
+			cout << "Wrong input enter choice again!" << endl << endl;
 
 
-	//	}
+		}
 
-	//}
+	}
 
+	system("pause");
 
 }
 

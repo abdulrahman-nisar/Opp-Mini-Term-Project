@@ -1,6 +1,6 @@
 #include "ContactsBook.h"
 
-void ContactsBook::add_contact(const Contact& contact)
+void ContactsBook::add_contact()
 {
 	if (full())
 	{
@@ -120,12 +120,12 @@ Contact* ContactsBook::search_contact(std::string phone)
 	
 }
 
-Contact* ContactsBook::search_contact(const Address& address)
+Contact* ContactsBook::search_contact(Address* address)
 {
 	Contact* contact_ptr = new Contact;
 	for (int i = 0; i < contacts_count; i++)
 	{
-		if (contacts_list[i].getAddress()->equals(&address))
+		if (contacts_list[i].getAddress()->equals(address))
 		{
 			contact_ptr->copy_contact(contacts_list[i]);
 			return contact_ptr;
@@ -137,7 +137,7 @@ Contact* ContactsBook::search_contact(const Address& address)
 	/*
 	*	Remove this return nullptr; before writing your code
 	*/
-	
+
 }
 
 ContactsBook::ContactsBook(int size_of_list):size_of_contacts(size_of_list),contacts_count(0)
@@ -243,7 +243,7 @@ void ContactsBook::load_from_file(std::string file_name)
 	if (!input_file)
 	{
 
-		cout << "Eror in opening file for leading.\n";
+		cout << "Erorr in opening file for loading.\n";
 		return;
 	}
 	string first_name, last_name, mobile_number, email_address;
@@ -337,4 +337,13 @@ void ContactsBook::save_to_file(std::string file_name)
 	*	house,street,city,country
 	*	Close the file
 	*/
+}
+
+void ContactsBook::displayContacts() const
+{
+	for (int i = 0; i < contacts_count; i++)
+	{
+		contacts_list[i].printContact();
+
+	}
 }

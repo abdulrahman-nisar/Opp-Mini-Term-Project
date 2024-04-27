@@ -72,3 +72,29 @@ Address* inputAddress()				//Always return an address
 	Address* address = new Address(house, street, city, country);
 	return address;
 }
+
+
+void displayContactBookMenu() 
+{
+	cout << "<---------Menu of ContactsBook Application--------->" << endl
+		<< "1. Create a contacts list from given size." << endl
+		<< "2. Add New Contact." << endl
+		<< "3. Merge Duplicates." << endl
+		<< "4. Store To File." << endl
+		<< "5. Load from file." << endl
+		<< "6. Print Contacts Sorted." << endl
+		<< "7. Print Contacts." << endl
+		<< "8. Search Contacts." << endl
+		<< "9. Display Cout of Contacts." << endl
+		<< "10. Exit." << endl << endl;
+	
+}
+
+void displaySearchMenu() 
+{
+	cout << "Enter the choice how you want to search the contact:" << endl
+		<< "1. Search contact by First_Name and Last_Name." << endl
+		<< "2. Search contact by Phone_Number." << endl
+		<< "3. Search contact by Address." << endl;
+
+}

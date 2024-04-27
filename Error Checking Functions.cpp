@@ -15,6 +15,7 @@ bool isStringOnlyNumbers(const string str)			//CHecking a string that must conta
 	}
 	return 0;
 }
+
 bool isStringOnlyAlphabets(const string str)		//CHecking a string that must contain only alphabets
 {
 	size_t length = str.length();				//Getting length of string

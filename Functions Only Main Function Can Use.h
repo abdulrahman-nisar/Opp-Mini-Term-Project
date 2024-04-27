@@ -8,3 +8,5 @@
 Address* inputAddress();		//This function will input value in address of a conact object
 void inputContact(Contact& contact);		//This funtion will input values in a contact object
 
+void displayContactBookMenu();//This function will display menu for Contact Book
+void displaySearchMenu() ;//This function will display menu for how to search contact
