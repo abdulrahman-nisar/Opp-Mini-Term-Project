@@ -26,16 +26,16 @@ public:
 	void printContact();			//This function will print a contact
 	void swapContact(Contact& contact);			//This is used to swap two contacts
 
-	Contact():address(nullptr){}
+	Contact();
 	Contact(std::string first_name, std::string last_name, std::string mobile_number, std::string email_address, Address *address);
 	~Contact();
 
 	//Setters function
-	void setFirstName(string f_name);
-	void setLastName(string l_name);
-	void setMobileNumber(string mobile_no);
-	void setEmailAddress(string email);
-	void setAddress(Address* recieved_address);
+	void setFirstName(const string f_name);
+	void setLastName(const string l_name);
+	void setMobileNumber(const string mobile_no);
+	void setEmailAddress(const string email);
+	void setAddress(const Address* const recieved_address);
 
 
 	//Getters function
@@ -43,5 +43,5 @@ public:
 	string getLastName() const;
 	string getMobileNumber() const;
 	string getEmailAddress() const;
-	Address* getAddress();
+	Address* getAddress() const;
 };

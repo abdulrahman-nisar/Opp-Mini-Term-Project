@@ -11,10 +11,10 @@ private:
 public:
 
 	//Setters
-	void setHouse(std::string);
-	void setStreet(std::string);
-	void setCity(std::string);
-	void setCountry(std::string);
+	void setHouse(const std::string);
+	void setStreet(const std::string);
+	void setCity(const std::string);
+	void setCountry(const std::string);
 
 	//Getters
 	string getHouse() const;
@@ -22,11 +22,15 @@ public:
 	string getCity() const;
 	string getCountry() const;
 
-	bool equals(const Address* address) const;
-	void print_address() const;
-	Address* copy_address();
+	bool equals(const Address* address) const;		//This function will return 1 if the caling address 
+													//and the passsed adresses are exact equal of each other
+	
+	void print_address() const;			//print all attributes of an address object
+	
+	Address* copy_address() const;	//This function will return make a dynamic copy of the calling object and return it
 
 
 	Address(std::string house, std::string street, std::string city, std::string country);
 	Address() {}
+	~Address() {};
 };

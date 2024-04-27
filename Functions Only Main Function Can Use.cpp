@@ -36,37 +36,36 @@ void inputContact(Contact& contact)
 }
 
 
-Address* inputAddress()				//Always return an address
+Address* inputAddress()	 //Always return an address of an address object. You can't use this functions on static objects
 {
 	string house;
 	string street;
 	string city;
 	string country;
-
 	do
 	{
 		cout << "Enter House Number:  ";
-		cin >> house;
-	} while (isStringOnlyNumbers(house) || isEmpty(house));
+		getline(cin,house);
+	} while (isStringOnlyNumbers(house));
 
 	do
 	{
 		cout << "Enter Street Number:  ";
-		cin >> street;
-	} while (isStringOnlyNumbers(street) || isEmpty(street));
+		getline(cin, street);
+	} while (isStringOnlyNumbers(street));
 
 	do
 	{
 		cout << "Enter City:  ";
 		getline(cin,city);
-	} while (isStringOnlyAlphabets(city) || isEmpty(city));
+	} while (isStringOnlyAlphabets(city));
 
 	do
 	{
 		cout << "Enter Country:  ";
 		getline(cin, country);
 
-	} while (isStringOnlyAlphabets(country) || isEmpty(country));
+	} while (isStringOnlyAlphabets(country));
 	
 
 	Address* address = new Address(house, street, city, country);

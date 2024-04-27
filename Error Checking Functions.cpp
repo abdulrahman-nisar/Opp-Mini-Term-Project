@@ -3,6 +3,10 @@
 
 bool isStringOnlyNumbers(const string str)			//CHecking a string that must contain only digits
 {
+	if (isEmpty(str))		//Checking for empty string
+	{
+		return 1;
+	}
 	size_t length = str.length();			//Getting length of string
 
 	for (size_t i = 0; i < length; i++)		//Iterating through the string
@@ -18,6 +22,10 @@ bool isStringOnlyNumbers(const string str)			//CHecking a string that must conta
 
 bool isStringOnlyAlphabets(const string str)		//CHecking a string that must contain only alphabets
 {
+	if (isEmpty(str))		//Checking for empty string
+	{
+		return 1;
+	}
 	size_t length = str.length();				//Getting length of string
 
 	for (size_t i = 0; i < length; i++)			//Iterating through the string

@@ -1,32 +1,29 @@
 #include "Address.h"
 
 //Constructor
-Address::Address(std::string House, std::string Street, std::string City, std::string Country) :house(House), street(Street), city(City), country(Country)
+Address::Address(std::string House, std::string Street, std::string City, std::string Country) :
+	house(House), street(Street), city(City), country(Country)
 {
-	setHouse(House);
-	setStreet(Street);
-	setCity(City);
-	setCountry(Country);
 }
 
      //--------------------------------------Setter functions----------------------------//
 
-void Address::setHouse(std::string House)
+void Address::setHouse(const string House)
 {
 	house = House;
 }
 
-void Address::setCity(std::string City)
+void Address::setCity(const string City)
 {
 	city = City; 
 }
 
-void Address::setCountry(std::string Country)
+void Address::setCountry(const string Country)
 {
 	country = Country;
 }
 
-void Address::setStreet(std::string Street)
+void Address::setStreet(const string Street)
 {
 	street = Street;
 }
@@ -51,31 +48,9 @@ string Address::getCountry() const
 }
 
 
-
-
-
-
-
-/*
-*	Implement a constructor that initializes all the address parts
-*
-*/
-
-
-/*
-*	Implement getter/setters for all the member variables of Address. Also declare them in the Address.h header file
-*
-*/
-
-
-
-/*
-*	Implement the equals function that takes an Address object and checks if it is equal to
-*	current object refered by (this pointer)
-*	Two addresses are equal if all the attributes of addresses are equal
-*/
-
-bool Address::equals(const Address* address) const
+//This function will return 1 if the caling address 
+//and the passsed adresses are exact equal of each other
+bool Address::equals(const Address* address) const	
 {
 	if ((city == address->city) && (house == address->house) && (street == address->street) && (country == address->country))
 	{
@@ -85,13 +60,15 @@ bool Address::equals(const Address* address) const
 	return false;
 }
 
-void Address::print_address() const
+void Address::print_address() const		//print all attributes of an address object
 {
 	cout << "House:" << house << ".  Street:" << street << ". City:" << city << ". Country:" << country << ". " << endl;
 	
 }
 
-Address* Address::copy_address()
+
+//This function will return make a dynamic copy of the calling object and return it
+Address* Address::copy_address() const
 {
 	Address* address;
 

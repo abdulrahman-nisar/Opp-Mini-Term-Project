@@ -5,7 +5,7 @@
 #include "ContactsBook.h"
 
 
-Address* inputAddress();		//This function will input value in address of a conact object
+Address* inputAddress();		//Always return an address of an address object. You can't use this functions on static objects
 void inputContact(Contact& contact);		//This funtion will input values in a contact object
 
 void displayContactBookMenu();//This function will display menu for Contact Book
