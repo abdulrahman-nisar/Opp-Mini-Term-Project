@@ -9,7 +9,7 @@ Contact::Contact(std::string first_name, std::string last_name, std::string mobi
 	setLastName(last_name);
 	setMobileNumber(mobile_number);
 	setEmailAddress(email_address);
-	setAddress(address);
+	this->address = address->copy_address();
 }
 
 Contact::Contact() :address(nullptr) {}
