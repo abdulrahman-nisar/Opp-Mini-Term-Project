@@ -25,9 +25,11 @@ public:
 	void copy_contact(Contact& contact);			//It will return copy of a contact object
 	void printContact();			//This function will print a contact
 	void swapContact(Contact& contact);			//This is used to swap two contacts
+	void setAddressToNull();			//This function is used to set address to null if we delete address due to any reason
+
 
 	Contact();
-	Contact(std::string first_name, std::string last_name, std::string mobile_number, std::string email_address, Address *a_address);
+	Contact(const string first_name, const string last_name, const string mobile_number, const string email_address,const  Address* const a_address);
 	~Contact();
 
 	//Setters function

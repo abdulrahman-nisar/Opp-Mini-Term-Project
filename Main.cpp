@@ -166,10 +166,10 @@ int main()
 	//	}
 
 	//}
-//Address* address = new Address("12", "13", "FSD", "PAK");
+	//Address* address = new Address("12", "13", "FSD", "PAK");
 
+	Contact c1;
+	inputContact(c1);
+	
 	system("pause");
-
-
 }
-

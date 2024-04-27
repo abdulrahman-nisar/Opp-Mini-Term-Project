@@ -30,7 +30,7 @@ public:
 	Address* copy_address() const;	//This function will return make a dynamic copy of the calling object and return it
 
 
-	Address(std::string house, std::string street, std::string city, std::string country);
+	Address(const string house, const string street, const string city, const string country);
 	Address() {}
 	~Address() {};
 };

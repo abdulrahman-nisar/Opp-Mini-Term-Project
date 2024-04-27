@@ -1,7 +1,7 @@
 #include "Address.h"
 
 //Constructor
-Address::Address(std::string House, std::string Street, std::string City, std::string Country) :
+Address::Address(const string House, const string Street, const string City, const string Country) :
 	house(House), street(Street), city(City), country(Country)
 {
 }

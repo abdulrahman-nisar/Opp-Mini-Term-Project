@@ -3,7 +3,7 @@
 
 //The address of pointer in this class must get dynamic address every time
 
-Contact::Contact(std::string first_name, std::string last_name, std::string mobile_number, std::string email_address, Address* a_address)		//Constructor
+Contact::Contact(const string first_name, const string last_name, const string mobile_number, const string email_address, const  Address* const a_address)		//Constructor
 {
 	setFirstName(first_name);
 	setLastName(last_name);
@@ -42,6 +42,10 @@ void Contact::setEmailAddress(const string email)
 void Contact::setAddress(const Address* const recieved_address)
 {
 	address = recieved_address->copy_address();
+}
+void Contact::setAddressToNull()			//This function is used to set address to null if we delete address due to any reason
+{
+	address = nullptr;
 }
 
 

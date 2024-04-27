@@ -10,19 +10,19 @@ void inputContact(Contact& contact)
 	{
 		cout << "Enter First Name: ";
 		getline(cin, first_name);
-	} while (isStringOnlyAlphabets(first_name) || isEmpty(first_name));
+	} while (isStringOnlyAlphabets(first_name));
 
 	do
 	{
 		cout << "Enter Last Name: ";
 		getline(cin, last_name);
-	} while (isStringOnlyAlphabets(last_name) || isEmpty(last_name));
+	} while (isStringOnlyAlphabets(last_name));
 
 	do
 	{
 		cout << "Enter Mobile Number: ";
 		getline(cin, mobile_number);
-	} while (isStringOnlyNumbers(mobile_number) || isEmpty(mobile_number) || isLengthOfMobileNumberIs11(mobile_number));
+	} while (isStringOnlyNumbers(mobile_number) || isLengthOfMobileNumberIs11(mobile_number));
 
 	cout << "Enter Email Address: ";
 	getline(cin, email_address);
