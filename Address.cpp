@@ -3,7 +3,10 @@
 //Constructor
 Address::Address(std::string House, std::string Street, std::string City, std::string Country) :house(House), street(Street), city(City), country(Country)
 {
-
+	setHouse(House);
+	setStreet(Street);
+	setCity(City);
+	setCountry(Country);
 }
 
      //--------------------------------------Setter functions----------------------------//
@@ -72,7 +75,7 @@ string Address::getCountry() const
 *	Two addresses are equal if all the attributes of addresses are equal
 */
 
-bool Address::equals(Address* address) const
+bool Address::equals(const Address* address) const
 {
 	if ((city == address->city) && (house == address->house) && (street == address->street) && (country == address->country))
 	{

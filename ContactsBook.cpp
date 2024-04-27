@@ -62,11 +62,11 @@ void ContactsBook::resize_list()
 
 	for (int i = 0; i < size_of_contacts / 2; i++)
 	{
-		temp_contacts_list[i].setFirstName(contacts_list[i].getFirstName());
-		temp_contacts_list[i].setLastName(contacts_list[i].getLastName());
+		temp_contacts_list[i].copy_contact(contacts_list[i]);
+		/*temp_contacts_list[i].setLastName(contacts_list[i].getLastName());
 		temp_contacts_list[i].setEmailAddress(contacts_list[i].getEmailAddress());
 		temp_contacts_list[i].setMobileNumber(contacts_list[i].getMobileNumber());
-		temp_contacts_list[i].setAddress(contacts_list[i].getAddress());
+		temp_contacts_list[i].setAddress(contacts_list[i].getAddress());*/
 
 	}
 	
@@ -86,11 +86,13 @@ void ContactsBook::resize_list()
 
 Contact* ContactsBook::search_contact(std::string first_name, std::string last_name)
 {
+	Contact* contact_ptr = new Contact;
 	for (int i = 0; i < contacts_count; i++)
 	{
 		if (contacts_list[i].getFirstName() == first_name && contacts_list[i].getLastName() == last_name)
 		{
-			return contacts_list[i].copy_contact();
+			contact_ptr->copy_contact(contacts_list[i]);
+			return contact_ptr;
 		}
 	}
 
@@ -105,11 +107,13 @@ Contact* ContactsBook::search_contact(std::string first_name, std::string last_n
 
 Contact* ContactsBook::search_contact(std::string phone)
 {
+	Contact* contact_ptr = new Contact;
 	for (int i = 0; i < contacts_count; i++)
 	{
 		if ((contacts_list[i].getMobileNumber()) == phone)
 		{
-			return contacts_list[i].copy_contact();
+			contact_ptr->copy_contact(contacts_list[i]);
+			return contact_ptr;
 		}
 	}
 
@@ -123,17 +127,17 @@ Contact* ContactsBook::search_contact(std::string phone)
 
 Contact* ContactsBook::search_contact(const Address& address)
 {
+	Contact* contact_ptr = new Contact;
 	for (int i = 0; i < contacts_count; i++)
 	{
-		if (contacts_list[i].getAddress()->getCity() == address.getCity()
-			&& contacts_list[i].getAddress()->getCountry() == address.getCountry()
-			&& contacts_list[i].getAddress()->getHouse() == address.getHouse()
-			&& contacts_list[i].getAddress()->getStreet() == address.getStreet())
+		if (contacts_list[i].getAddress()->equals(&address))
 		{
-			return contacts_list[i].copy_contact();
+			contact_ptr->copy_contact(contacts_list[i]);
+			return contact_ptr;
 		}
 	}
 
+	cout << "Not Found\n";
 	return nullptr;//if no any contact is found of address
 	/*
 	*	Remove this return nullptr; before writing your code
@@ -149,7 +153,7 @@ ContactsBook::ContactsBook(int size_of_list):size_of_contacts(size_of_list),cont
 	*/
 }
 
-void ContactsBook::print_contacts_sorted(std::string choice)
+void ContactsBook::print_contacts_sorted(int choice)
 {
 	
 	if (checkSortingChoice(choice) == 1)
@@ -172,34 +176,32 @@ void ContactsBook::print_contacts_sorted(std::string choice)
 	*/
 }
 
-void ContactsBook::sort_contacts_list(Contact *contacts_list, std::string choice)
+void ContactsBook::sort_contacts_list(Contact *contacts_list, int choice)
 {
 	string name1, name2;		//Thses variables will store the first/last nsmes of both comparing contacts
-	string temp;		//used in swapping
+	Contact temp;		//used in swapping
 	for (int i = 0; i < contacts_count-1; i++)
 	{
 		for (int j = 1; j < contacts_count; j++)
 		{
-			if (choice == "first_name")		//If the user choice is first name it will work other wise the else part
+			if (choice == 0)		//If the user choice is first name it will work other wise the else part
 			{
 				name1 = contacts_list[i].getFirstName();
 				name2 = contacts_list[j].getFirstName();
 				if (name1[0] > name2[0])
 				{
 					
-					contacts_list[i].setFirstName(name2);
-					contacts_list[j].setFirstName(name1);
+					contacts_list[i].swapContact(contacts_list[j]);
 				}
 			}
-			else if (choice == "last_name")		//This part works if the user wants to sort by last name
+			else if (choice == 1)		//This part works if the user wants to sort by last name
 			{
 				name1 = contacts_list[i].getLastName();
 				name2 = contacts_list[j].getLastName();
 				if (name1[0] > name2[0])
 				{
 
-					contacts_list[i].setLastName(name2);
-					contacts_list[j].setLastName(name1);
+					contacts_list[i].swapContact(contacts_list[j]);
 				}
 			}
 		}
@@ -213,6 +215,7 @@ void ContactsBook::sort_contacts_list(Contact *contacts_list, std::string choice
 
 void ContactsBook::merge_duplicates() 
 {
+	
 	for (int i = 0; i < contacts_count-1; i++)
 	{
 		for (int j = i + 1; j < contacts_count; j++)
@@ -220,7 +223,7 @@ void ContactsBook::merge_duplicates()
 			if (contacts_list[i].equals(contacts_list[j]))
 			{
 				contacts_list[j].setFirstName("Not/Available");
-				contacts_count--;
+				contacts_count;
 			}
 		}
 	}

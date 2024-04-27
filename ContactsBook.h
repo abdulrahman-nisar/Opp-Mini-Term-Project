@@ -27,7 +27,7 @@ public:
 
 	ContactsBook(int size_of_list);//done
 
-	void print_contacts_sorted(std::string choice); // Only two choices first_name or last_name
+	void print_contacts_sorted(int choice); // Only two choices first_name or last_name
 	void merge_duplicates(); // Implement this function that finds and merges all the duplicates
 							 // Duplicate means exact equal, this means if
 	
@@ -40,5 +40,5 @@ public:
 private:
 	bool full() const;//done
 	void resize_list();//done
-	void sort_contacts_list(Contact *contacts_list, std::string choice);
+	void sort_contacts_list(Contact *contacts_list, int choice);
 };

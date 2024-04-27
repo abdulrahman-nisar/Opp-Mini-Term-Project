@@ -36,7 +36,7 @@ void inputContact(Contact& contact)
 }
 
 
-Address* inputAddress()
+Address* inputAddress()				//Always return an address
 {
 	string house;
 	string street;

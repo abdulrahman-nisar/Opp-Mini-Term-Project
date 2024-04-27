@@ -22,7 +22,7 @@ public:
 	string getCity() const;
 	string getCountry() const;
 
-	bool equals(Address* address) const;
+	bool equals(const Address* address) const;
 	void print_address() const;
 	Address* copy_address();
 

@@ -14,4 +14,4 @@ bool isEmpty(const string str);							//This functions will check for an empty s
 
 void checkInput(int& n);		//This function will check for negative or invalid input in integer variable
 
-bool checkSortingChoice(const string str);		//This will check user choice for sorting
+bool checkSortingChoice(const int choice);		//This will check user choice for sorting

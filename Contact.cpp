@@ -1,9 +1,15 @@
 #include "Contact.h"
 
 
+//The address of pointer in this class must get dynamic address every time
+
 Contact::Contact(std::string first_name, std::string last_name, std::string mobile_number, std::string email_address, Address* address)		//Constructor
 {
-		
+	setFirstName(first_name);
+	setLastName(last_name);
+	setMobileNumber(mobile_number);
+	setEmailAddress(email_address);
+	setAddress(address);
 }
 	
 					//--------------------------------------Setter functions----------------------------//
@@ -46,7 +52,7 @@ string Contact::getEmailAddress() const
 {
 	return email_address;
 }
-Address* Contact::getAddress()
+Address* Contact::getAddress()		//This will return the refrencde of address. If you want a copy call the copy address function explicitly
 {
 	return address;
 }
@@ -74,16 +80,14 @@ Address* Contact::getAddress()
 *   For example: this.address.equals
 */
 
-Contact* Contact::copy_contact()
+void Contact::copy_contact(Contact& contact)
 {
-	Contact* contact; 
-	contact = new Contact;
-	contact->first_name = this->first_name;
-	contact->last_name = this->last_name;
-	contact->mobile_number = this->mobile_number;
-	contact->email_address = this->email_address;
-	contact->address = this->address->copy_address();
-	return contact;
+	
+	this->first_name = contact.first_name;
+	 this->last_name = contact.last_name;
+	 this->mobile_number = contact.mobile_number;
+	this->email_address = contact.email_address;
+	this->address = contact.address->copy_address() ;
 }
 
 bool Contact::equals(const Contact& contact) const		//Return 1 if two objects are equal
@@ -95,6 +99,17 @@ bool Contact::equals(const Contact& contact) const		//Return 1 if two objects ar
 	return false;
 }
 
+
+void Contact::swapContact(Contact& contact)			//This is used to swap two contacts
+{
+	Contact temp;
+	temp.copy_contact(*this);
+	delete this->address;
+	this->copy_contact(contact);
+	delete contact.address;
+	contact.copy_contact(temp);
+	delete temp.address;
+}
 
 void Contact::printContact()			//This function will print a contact
 {
