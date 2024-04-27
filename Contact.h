@@ -26,8 +26,9 @@ public:
 	void printContact();			//This function will print a contact
 	void swapContact(Contact& contact);			//This is used to swap two contacts
 
-	Contact(){}
+	Contact():address(nullptr){}
 	Contact(std::string first_name, std::string last_name, std::string mobile_number, std::string email_address, Address *address);
+	~Contact();
 
 	//Setters function
 	void setFirstName(string f_name);

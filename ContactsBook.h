@@ -39,6 +39,6 @@ public:
 
 private:
 	bool full() const;//done
-	void resize_list();//done
+	void resize_list(int);//done
 	void sort_contacts_list(Contact *contacts_list, int choice);
 };

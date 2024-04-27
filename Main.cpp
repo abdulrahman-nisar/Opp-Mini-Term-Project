@@ -5,6 +5,12 @@ Also I have Called the full() function in if statement beacuse it is checking th
 
 
 
+/*I haev maked some changes in resize list(). Beacuse our resize list is only working when we want to add contact
+but we want to resisze it mltiple time at different point. From now on we will pass the new size and the loop will
+iterates until contacts_count*/
+
+
+
 
 
 
