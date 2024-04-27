@@ -3,13 +3,13 @@
 
 //The address of pointer in this class must get dynamic address every time
 
-Contact::Contact(std::string first_name, std::string last_name, std::string mobile_number, std::string email_address, Address* address)		//Constructor
+Contact::Contact(std::string first_name, std::string last_name, std::string mobile_number, std::string email_address, Address* a_address)		//Constructor
 {
 	setFirstName(first_name);
 	setLastName(last_name);
 	setMobileNumber(mobile_number);
 	setEmailAddress(email_address);
-	this->address = address->copy_address();
+	this->address = a_address->copy_address();
 }
 
 Contact::Contact() :address(nullptr) {}
@@ -74,7 +74,7 @@ void Contact::copy_contact(Contact& contact)
 	 this->last_name = contact.last_name;
 	 this->mobile_number = contact.mobile_number;
 	this->email_address = contact.email_address;
-	this->address = contact.address->copy_address() ;
+	this->address = contact.address->copy_address();
 }
 
 bool Contact::equals(const Contact& contact) const		//Return 1 if two objects are equal

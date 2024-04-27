@@ -27,7 +27,7 @@ public:
 	void swapContact(Contact& contact);			//This is used to swap two contacts
 
 	Contact();
-	Contact(std::string first_name, std::string last_name, std::string mobile_number, std::string email_address, Address *address);
+	Contact(std::string first_name, std::string last_name, std::string mobile_number, std::string email_address, Address *a_address);
 	~Contact();
 
 	//Setters function

@@ -167,14 +167,7 @@ int main()
 
 	//}
 //Address* address = new Address("12", "13", "FSD", "PAK");
-//Contact c("Danial", "Zaheer", "03248399069", "DanialZaheer",address);
-//Contact c2;
-//c2.setAddress(address);
-//delete address;
-//c.printContact();
-////c2.printContact();
-//delete c.getAddress();
-////c2.printContact();
+
 	system("pause");
 
 
