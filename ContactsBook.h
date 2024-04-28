@@ -26,7 +26,8 @@ public:
 	Contact* search_contact(Address* address);
 
 	ContactsBook(int size_of_list);		//The constructor will create a new array of contacts for contact book object
-	~ContactsBook();
+	~ContactsBook();		//Destructor
+	ContactsBook();			//Default constructor
 
 	void print_contacts_sorted(int choice); // Only two choices first_name or last_name
 	void merge_duplicates(); // This function finds and merges all the duplicates

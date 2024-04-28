@@ -71,7 +71,7 @@ Address* Contact::getAddress() const		//This will return the refrencde of addres
 	return address;
 }
 
-void Contact::copy_contact(Contact& contact)	//It will recieve contact object and deep copy it to *this object
+void Contact::copy_contact(const Contact& contact)	//It will recieve contact object and deep copy it to *this object
 {
 	
 	this->first_name = contact.first_name;

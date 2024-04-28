@@ -8,6 +8,7 @@ void inputContact(Contact& contact)
 	std::string email_address;
 	do
 	{
+		cin.ignore();
 		cout << "Enter First Name: ";
 		getline(cin, first_name);
 	} while (isStringOnlyAlphabets(first_name));
@@ -73,19 +74,17 @@ Address* inputAddress()	 //Always return an address of an address object. You ca
 }
 
 
+
 void displayContactBookMenu() 
 {
-	cout << "<---------Menu of ContactsBook Application--------->" << endl
-		<< "1. Create a contacts list from given size." << endl
-		<< "2. Add New Contact." << endl
-		<< "3. Merge Duplicates." << endl
-		<< "4. Store To File." << endl
-		<< "5. Load from file." << endl
-		<< "6. Print Contacts Sorted." << endl
-		<< "7. Print Contacts." << endl
-		<< "8. Search Contacts." << endl
-		<< "9. Display Cout of Contacts." << endl
-		<< "10. Exit." << endl << endl;
+	cout << "1. Add New Contact." << endl
+		<< "2. Merge Duplicates." << endl
+		<< "3. Store To File." << endl
+		<< "4. Print Contacts Sorted." << endl
+		<< "5. Print Contacts." << endl
+		<< "6. Search Contacts." << endl
+		<< "7. Display Cout of Contacts." << endl
+		<< "8. Exit." << endl << endl;
 	
 }
 
@@ -97,3 +96,15 @@ void displaySearchMenu()
 		<< "3. Search contact by Address." << endl;
 
 }
+
+
+void displayStartUpMenu()
+{
+	cout << "<---------Menu of ContactsBook Application--------->" << endl
+		<< "1. Create a new Contact Book. " << endl
+		<< "2. Load From File" << endl
+		<< "3. Exit." << endl;
+}
+
+
+

@@ -147,7 +147,7 @@ ContactsBook::ContactsBook(int size_of_list):size_of_contacts(size_of_list),cont
 	
 }
 
-
+//Destructor
 ContactsBook::~ContactsBook()
 {
 	if (contacts_list != nullptr)
@@ -156,12 +156,18 @@ ContactsBook::~ContactsBook()
 	}
 }
 
+ContactsBook::ContactsBook() :
+	size_of_contacts(0), contacts_count(0), contacts_list(nullptr)	//Default constructor
+{
+
+}
+
 void ContactsBook::print_contacts_sorted(int choice)		//Make a copy of all contacts. Sort it then display it.
 {
 	
 	if (total_contacts() <= 1)
 	{
-		cout << "Not enough contacs to perform sorting\n";
+		cout << "Not enough contacts to perform sorting\n";
 	}
 	if (checkSortingChoice(choice) == 1)
 	{
@@ -303,13 +309,18 @@ void ContactsBook::load_from_file(std::string file_name)
 
 void ContactsBook::save_to_file(std::string file_name) 
 {
+	if (contacts_count == 0)
+	{
+		cout << "Nothing to Store in file\n";
+		return;
+	}
 	//Open a file for writing
 	ofstream output_file(file_name);
 
 	//Check if file is opened or not
 	if (!output_file)
 	{
-		cout << "Error in opening file for wirting!" << endl;
+		cout << "Error in opening file for writing!" << endl;
 		return;
 	}
 
@@ -355,6 +366,11 @@ void ContactsBook::save_to_file(std::string file_name)
 
 void ContactsBook::displayContacts() const
 {
+	if (contacts_count == 0)
+	{
+		cout << "No Contact to display\n";
+		return;
+	}
 	for (int i = 0; i < contacts_count; i++)
 	{
 		contacts_list[i].printContact();

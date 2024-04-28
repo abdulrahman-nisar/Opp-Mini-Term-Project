@@ -22,7 +22,7 @@ private:
 
 public:
 	bool equals(const Contact& contact) const;			//Return 1 if two objects are equal
-	void copy_contact(Contact& contact);			//It will recieve contact object and deep copy it to *this object
+	void copy_contact(const Contact& contact);			//It will recieve contact object and deep copy it to *this object
 	void printContact();			//This function will print a contact
 	void swapContact(Contact& contact);			//This is used to swap two contacts
 	void setAddressToNull();			//This function is used to set address to null if we delete address due to any reason

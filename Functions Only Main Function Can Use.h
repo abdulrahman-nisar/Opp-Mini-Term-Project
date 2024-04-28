@@ -5,8 +5,18 @@
 #include "ContactsBook.h"
 
 
+const string file_name_G = "ContactList.txt";
 Address* inputAddress();		//Always return an address of an address object. You can't use this functions on static objects
 void inputContact(Contact& contact);		//This funtion will input values in a contact object
 
+
 void displayContactBookMenu();//This function will display menu for Contact Book
+
 void displaySearchMenu() ;//This function will display menu for how to search contact
+
+
+
+void displayStartUpMenu();	//This funtion will display when the application is opened
+
+
+
