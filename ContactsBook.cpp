@@ -1,6 +1,6 @@
 #include "ContactsBook.h"
 
-void ContactsBook::add_contact()
+void ContactsBook::add_contact()			//Add a new contact
 {
 	if (full())
 	{
@@ -9,8 +9,6 @@ void ContactsBook::add_contact()
 		inputContact(contacts_list[contacts_count]);
 		contacts_count++;
 
-
-		//i want to return 1 so i will make it return type bool or not?
 	/*
 		- Check if the list is full, if it is full call the resize function
 		- If list is not full add the contact to the end of the array 
@@ -22,34 +20,23 @@ void ContactsBook::add_contact()
 	*/
 }
 
-int ContactsBook::total_contacts() const
+int ContactsBook::total_contacts() const		//return total number of contacts added till now
 {
 
 	return contacts_count;
-	/*
-	*	Return the total contacts currently stored
-	*/
-
-	/*
-	*	Remove this return -1; before writing your code
-	*/
-	//return -1;
+	
 }
 
-bool ContactsBook::full() const
+
+bool ContactsBook::full() const		//Return true if list is full, false otherwise
 {
 	if(contacts_count == size_of_contacts)
 	{
 		return true;
 	}
 	return false;
-	/*
-	* Return true if list is full, false otherwise
-	*/
-
-	/*
-	*	Remove this return false; before writing your code
-	*/
+	
+	
 	
 }
 
@@ -81,6 +68,12 @@ void ContactsBook::resize_list(const int size_for_new_array)
 
 Contact* ContactsBook::search_contact(std::string first_name, std::string last_name)
 {
+	
+	if (total_contacts() == 0)		//Checking for empty contact list
+	{
+		cout << "No Contatacts in Contact Book\n";
+		return nullptr;
+	}
 	Contact* contact_ptr = new Contact;
 	for (int i = 0; i < contacts_count; i++)
 	{
@@ -93,15 +86,16 @@ Contact* ContactsBook::search_contact(std::string first_name, std::string last_n
 
 	return nullptr;//if no contact is found of first_name and last_name
 
-	/*
-	*	In all search functions perform the searching according the given parameter and return a copy of the contact using copy func
-	*	Remove this return nullptr; before writing your code
-	*/
 	
 }
 
 Contact* ContactsBook::search_contact(std::string phone)
 {
+	if (total_contacts() == 0)	//Checking for empty contact list
+	{
+		cout << "No Contatacts in Contact Book\n";
+		return nullptr;
+	}
 	Contact* contact_ptr = new Contact;
 	for (int i = 0; i < contacts_count; i++)
 	{
@@ -122,6 +116,11 @@ Contact* ContactsBook::search_contact(std::string phone)
 
 Contact* ContactsBook::search_contact(Address* address)
 {
+	if (total_contacts() == 0)	//Checking for empty contact list
+	{
+		cout << "No Contatacts in Contact Book\n";
+		return nullptr;
+	}
 	Contact* contact_ptr = new Contact;
 	for (int i = 0; i < contacts_count; i++)
 	{
@@ -140,25 +139,44 @@ Contact* ContactsBook::search_contact(Address* address)
 
 }
 
+//Initialize the contacts_list array, also initialize the size and count members accordingly
 ContactsBook::ContactsBook(int size_of_list):size_of_contacts(size_of_list),contacts_count(0)
 {
 	contacts_list = new Contact[size_of_list];
-	/*
-	*	Initialize the contacts_list array, also initialize the size and count members accordingly
-	*/
+	
+	
 }
 
-void ContactsBook::print_contacts_sorted(int choice)
+
+ContactsBook::~ContactsBook()
+{
+	if (contacts_list != nullptr)
+	{
+		delete[] contacts_list;
+	}
+}
+
+void ContactsBook::print_contacts_sorted(int choice)		//Make a copy of all contacts. Sort it then display it.
 {
 	
+	if (total_contacts() <= 1)
+	{
+		cout << "Not enough contacs to perform sorting\n";
+	}
 	if (checkSortingChoice(choice) == 1)
 	{
-		sort_contacts_list(contacts_list, choice);
+		Contact* temp_contact_list = new Contact[contacts_count];
+		for (int i = 0; i < contacts_count; i++)
+		{
+			temp_contact_list[i].copy_contact(contacts_list[i]);
+		}
+		sort_contacts_list(temp_contact_list, choice);
 
 		for (int i = 0; i < contacts_count; i++)
 		{
-			contacts_list[i].printContact();
+			temp_contact_list[i].printContact();
 		}
+		delete[] temp_contact_list;
 	}
 	
 	/*
@@ -171,7 +189,7 @@ void ContactsBook::print_contacts_sorted(int choice)
 	*/
 }
 
-void ContactsBook::sort_contacts_list(Contact *contacts_list, int choice)
+void ContactsBook::sort_contacts_list(Contact *contacts_list, int choice)		//Sort the contacts accorfing to first name or last name
 {
 	string name1, name2;		//Thses variables will store the first/last nsmes of both comparing contacts
 	Contact temp;		//used in swapping
@@ -196,18 +214,14 @@ void ContactsBook::sort_contacts_list(Contact *contacts_list, int choice)
 			}
 		}
 	}
-	/*
-		You should not duplicate the code to sort based on choices
-		Follow the strategy provided in manual/tutorial to avoid duplicating the code (Section B & E only)
-		Sort by the fist letter of first name or last name as given in choice
-	*/
+	
 }
 
-void ContactsBook::merge_duplicates() 
+void ContactsBook::merge_duplicates()		//THis function will find and merge dublicates
 {
 	
 	 
-	if (contacts_count == 0 || contacts_count == 1)
+	if (contacts_count == 0 || contacts_count == 1)			//Checking for enough contacts to exist for merging
 	{
 		cout << "Can't perform merge.Either no contacts or only only one contact";
 		return;

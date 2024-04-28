@@ -2,174 +2,172 @@
 
 int main()
 {
-	//cout << "<---------Welcome to the ContactsBook Application----------->" << endl;
+	cout << "<---------Welcome to the ContactsBook Application----------->" << endl;
 
-	//int choice,size;
-	//string file_name = "Null", string_choice = "Null", phone_number = "Null", first_name = "Null", last_name = "Null";
-	//ContactsBook* contacts_book = nullptr;
+	int choice,size;
+	string file_name = "Null", string_choice = "Null", phone_number = "Null", first_name = "Null", last_name = "Null";
+	ContactsBook* contacts_book = nullptr;
 
-	//while (1)
-	//{
-	//	displayContactBookMenu();
-	//	cin >> choice;
+	while (1)
+	{
+		displayContactBookMenu();
+		cin >> choice;
 
-	//	checkInput(choice);//for error checking
+		checkInput(choice);//for error checking
 
-	//	if (choice == 1)//check if already contact list is created or not
-	//	{
-	//		cout << "You already created contacts list from given size." << endl;
-	//		continue;
-	//	}
+		if (choice == 1)//check if already contact list is created or not
+		{
+			cout << "You already created contacts list from given size." << endl;
+			continue;
+		}
 
-	//	switch (choice)
-	//	{
+		switch (choice)
+		{
 
-	//	case 1:
+		case 1:
 
-	//		cout << "Enter the size of contacts:" << endl;
-	//		cin >> size;
-	//		checkInput(size);
-	//		contacts_book = new ContactsBook(size);
+			cout << "Enter the size of contacts:" << endl;
+			cin >> size;
+			checkInput(size);
+			contacts_book = new ContactsBook(size);
 
-	//		break;
+			break;
 
-	//	case 2:
-	//		contacts_book->add_contact();
+		case 2:
+			contacts_book->add_contact();
 
-	//		break;
-	//	case 3:
+			break;
+		case 3:
 
-	//		contacts_book->merge_duplicates();
+			contacts_book->merge_duplicates();
 
-	//		break;
-	//	case 4:
-	//		cout << "Enter the file name to store the contacts list:" << endl;
-	//		do
-	//		{
-	//			getline(cin, file_name);
+			break;
+		case 4:
+			cout << "Enter the file name to store the contacts list:" << endl;
+			do
+			{
+				getline(cin, file_name);
 
-	//		} while (isStringOnlyAlphabets(file_name) || isEmpty(file_name));
-	//			
-	//
-	//		contacts_book->save_to_file(file_name);
+			} while (isStringOnlyAlphabets(file_name) || isEmpty(file_name));
+				
+	
+			contacts_book->save_to_file(file_name);
 
-	//		break;
+			break;
 
-	//	case 5:
+		case 5:
 
-	//		cout << "Enter the file name to load the contacts list:" << endl;
-	//		do
-	//		{
-	//			getline(cin, file_name);
+			cout << "Enter the file name to load the contacts list:" << endl;
+			do
+			{
+				getline(cin, file_name);
 
-	//		} while (isStringOnlyAlphabets(file_name) || isEmpty(file_name));
-	//		
-	//		contacts_book->load_from_file(file_name);
-	//		
-	//		break;
+			} while (isStringOnlyAlphabets(file_name) || isEmpty(file_name));
+			
+			contacts_book->load_from_file(file_name);
+			
+			break;
 
-	//	case 6:
-	//		
-	//			cout << "1. Sort by first name." << endl
-	//				<< "2. Sort by last name." << endl;
+		case 6:
+			
+				cout << "1. Sort by first name." << endl
+					<< "2. Sort by last name." << endl;
 
-	//			cin >> choice;
+				cin >> choice;
 
-	//			checkInput(choice);//Check for error
-	//
-	//			contacts_book->print_contacts_sorted(choice);
+				checkInput(choice);//Check for error
+	
+				contacts_book->print_contacts_sorted(choice);
 
-	//		break;
+			break;
 
-	//	case 7:
+		case 7:
 
-	//		contacts_book->displayContacts();
-	//		
-	//		break;
+			contacts_book->displayContacts();
+			
+			break;
 
-	//	case 8:
-	//		do
-	//		{
-	//			displaySearchMenu();
-	//			cin >> choice;
+		case 8:
+			do
+			{
+				displaySearchMenu();
+				cin >> choice;
 
-	//			checkInput(choice);//for error checking
+				checkInput(choice);//for error checking
 
-	//			switch (choice)
-	//			{
-	//			
-	//			case 1:
+				switch (choice)
+				{
+				
+				case 1:
 
-	//				cout << "Enter the first name of the contact to search:" << endl;
-	//				do
-	//				{
-	//					getline(cin, first_name);
+					cout << "Enter the first name of the contact to search:" << endl;
+					do
+					{
+						getline(cin, first_name);
 
-	//				} while (isStringOnlyAlphabets(first_name) || isEmpty(first_name));
-	//				
+					} while (isStringOnlyAlphabets(first_name) || isEmpty(first_name));
+					
 
-	//				cout << "Enter the last name of the contact to search:" << endl;
-	//				do
-	//				{
-	//					getline(cin, last_name);
+					cout << "Enter the last name of the contact to search:" << endl;
+					do
+					{
+						getline(cin, last_name);
 
-	//				} while (isStringOnlyAlphabets(last_name) || isEmpty(last_name));
+					} while (isStringOnlyAlphabets(last_name) || isEmpty(last_name));
 
-	//				
-	//				contacts_book->search_contact(first_name, last_name)->printContact();
+					
+					contacts_book->search_contact(first_name, last_name)->printContact();
 
-	//				break;
+					break;
 
-	//			case 2:
+				case 2:
 
-	//				cout << "Enter the phone number of the contact to search:" << endl;
-	//				do
-	//				{
-	//					getline(cin, phone_number);
+					cout << "Enter the phone number of the contact to search:" << endl;
+					do
+					{
+						getline(cin, phone_number);
 
-	//				} while (isLengthOfMobileNumberIs11(phone_number) || isEmpty(phone_number));
-	//				
+					} while (isLengthOfMobileNumberIs11(phone_number) || isEmpty(phone_number));
+					
 
-	//				contacts_book->search_contact(phone_number)->printContact();
+					contacts_book->search_contact(phone_number)->printContact();
 
-	//				break;
+					break;
 
-	//			case 3:
-	//				
-	//				contacts_book->search_contact(inputAddress());
+				case 3:
+					
+					contacts_book->search_contact(inputAddress());
 
-	//				break;
+					break;
 
-	//			default:
+				default:
 
-	//				cout << "Your Input is wrong!Enter Again:" << endl;
-	//			}
+					cout << "Your Input is wrong!Enter Again:" << endl;
+				}
 
-	//		} while (!(choice <= 3));
+			} while (!(choice <= 3));
 
-	//		break;
+			break;
 
-	//	case 9:
-	//		cout << "Count of Contacts till now is " << contacts_book->total_contacts() << "." << endl;
-	//		break;
+		case 9:
+			cout << "Count of Contacts till now is " << contacts_book->total_contacts() << "." << endl;
+			break;
 
-	//	case 10:
+		case 10:
 
-	//	exit(0);
+		exit(0);
 
-	//		break;
+			break;
 
-	//	default:
-	//		cout << "Wrong input enter choice again!" << endl << endl;
+		default:
+			cout << "Wrong input enter choice again!" << endl << endl;
 
 
-	//	}
+		}
 
-	//}
-	//Address* address = new Address("12", "13", "FSD", "PAK");
+	}
+	Address* address = new Address("12", "13", "FSD", "PAK");
 
-	Contact c1;
-	inputContact(c1);
 	
 	system("pause");
 }
