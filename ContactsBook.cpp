@@ -308,7 +308,7 @@ void ContactsBook::load_from_file(std::string file_name)
 
 	input_file.close();
 
-	
+	cout << "File loaded Successfully!" << endl;
 	/*
 	*	Read contacts back from file in the same format	
 	*	Read the contacts_count, and run a loop for this contacts_count and read the 
