@@ -97,10 +97,10 @@ bool Contact::equals(const Contact& contact) const		//Return 1 if two objects ar
 }
 
 
-void Contact::swapContact(Contact& contact)			//This is used to swap two contacts
-{
+void Contact::swapContact(Contact& contact) {
+	Contact temp; // Temporary contact to hold the values during swap
 
-	Contact temp;
+
 	temp.first_name = this->first_name;
 	temp.last_name = this->last_name;
 	temp.mobile_number = this->mobile_number;
@@ -109,8 +109,18 @@ void Contact::swapContact(Contact& contact)			//This is used to swap two contact
 	Address* temp_address = this->address;
 	this->address = contact.address;
 	contact.address = temp_address;
-	
+
+	this->first_name = contact.first_name;
+	this->last_name = contact.last_name;
+	this->mobile_number = contact.mobile_number;
+	this->email_address = contact.email_address;
+
+	contact.first_name = temp.first_name;
+	contact.last_name = temp.last_name;
+	contact.mobile_number = temp.mobile_number;
+	contact.email_address = temp.email_address;
 }
+
 
 void Contact::printContact()			//This function will print a contact
 {
