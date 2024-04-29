@@ -6,9 +6,10 @@ void inputContact(Contact& contact)
 	std::string last_name;
 	std::string mobile_number;
 	std::string email_address;
+	cin.ignore();
 	do
 	{
-		cin.ignore();
+		
 		cout << "Enter First Name: ";
 		getline(cin, first_name);
 	} while (isStringOnlyAlphabets(first_name));
@@ -32,12 +33,12 @@ void inputContact(Contact& contact)
 	contact.setLastName(last_name);
 	contact.setMobileNumber(mobile_number);
 	contact.setEmailAddress(email_address);
-	contact.setAddress(inputAddress());
+	inputAddress(contact.getAddress());
 
 }
 
 
-Address* inputAddress()	 //Always return an address of an address object. You can't use this functions on static objects
+void inputAddress(Address* address)	 //Always return an address of an address object. You can't use this functions on static objects
 {
 	string house;
 	string street;
@@ -67,10 +68,10 @@ Address* inputAddress()	 //Always return an address of an address object. You ca
 		getline(cin, country);
 
 	} while (isStringOnlyAlphabets(country));
-	
-
-	Address* address = new Address(house, street, city, country);
-	return address;
+	address->setHouse(house);
+	address->setStreet(street);
+	address->setCity(city);
+	address->setCountry(country);
 }
 
 

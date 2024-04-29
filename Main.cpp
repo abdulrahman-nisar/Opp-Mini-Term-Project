@@ -3,8 +3,7 @@
 
 void workingInSorting(ContactsBook* contact_book);
 void workingInSearching(ContactsBook* contact_book);
-//
-//void workingInStartupMenu(ContactsBook*& contact_book);
+
 void workingInContactBookMenu(ContactsBook* contact_book);
 
 
@@ -12,7 +11,6 @@ int main()
 {
 
 	ContactsBook* contact_book = nullptr;
-
 	bool* flag = new bool;
 	*flag = true;
 	int choice;
@@ -79,7 +77,7 @@ void workingInSearching(ContactsBook* contact_book)
 	{
 		displaySearchMenu();
 		cin >> choice;
-
+		Address* address = nullptr;
 		checkInput(choice);//for error checking
 
 		switch (choice)
@@ -123,7 +121,9 @@ void workingInSearching(ContactsBook* contact_book)
 
 		case 3:
 
-			contact_book->search_contact(inputAddress());
+			address = new Address;
+			inputAddress(address);
+			contact_book->search_contact(address);
 
 			break;
 

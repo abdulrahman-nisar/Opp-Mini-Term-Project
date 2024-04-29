@@ -257,7 +257,8 @@ void ContactsBook::merge_duplicates()		//THis function will find and merge dubli
 void ContactsBook::load_from_file(std::string file_name) 
 {
 	
-	ifstream input_file(file_name);
+	ifstream input_file;
+	input_file.open(file_name);
 
 
 	if (!input_file)
@@ -270,27 +271,28 @@ void ContactsBook::load_from_file(std::string file_name)
 	string house, street, city, country;
 	
 	
-	if (!(input_file >> contacts_count))		//Checking if the file has anything at all
-	{
-		cout << "Error reading contacts count from file.\n";
-		return;
-	}
-	size_of_contacts = contacts_count+5;
-	contacts_list = new Contact[size_of_contacts];
+	//if (!(input_file >> contacts_count))		//Checking if the file has anything at all
+	//{
+	//	cout << "Error reading contacts count from file.\n";
+	//	return;
+	//}
+	input_file >> contacts_count;
+	this->size_of_contacts = contacts_count+5;
+	this->contacts_list = new Contact[size_of_contacts];
 
 	for (int i = 0; !(input_file.eof()); i++)
 	{
 		input_file >> first_name >> last_name >> mobile_number >> email_address;
 		input_file >> house >> street >> city >> country;
-		contacts_list[i].setFirstName(first_name);
-		contacts_list[i].setLastName(last_name);
-		contacts_list[i].setMobileNumber(mobile_number);
-		contacts_list[i].setEmailAddress(email_address);
+		this->contacts_list[i].setFirstName(first_name);
+		this->contacts_list[i].setLastName(last_name);
+		this->contacts_list[i].setMobileNumber(mobile_number);
+		this->contacts_list[i].setEmailAddress(email_address);
 
-		contacts_list[i].getAddress()->setHouse(house);
-		contacts_list[i].getAddress()->setStreet(street);
-		contacts_list[i].getAddress()->setCity(city);
-		contacts_list[i].getAddress()->setCity(country);
+		this->contacts_list[i].getAddress()->setHouse(house);
+		this->contacts_list[i].getAddress()->setStreet(street);
+		this->contacts_list[i].getAddress()->setCity(city);
+		this->contacts_list[i].getAddress()->setCountry(country);
 
 	}
 
@@ -333,16 +335,16 @@ void ContactsBook::save_to_file(std::string file_name)
 	{
 
 		//Writing contacts attributes in file
-		output_file << contacts_list[i].getFirstName() << "\t"
-			<< contacts_list[i].getLastName() << "\t"
-			<< contacts_list[i].getMobileNumber() << "\t"
+		output_file << contacts_list[i].getFirstName() << " "
+			<< contacts_list[i].getLastName() << " "
+			<< contacts_list[i].getMobileNumber() << " "
 			<< contacts_list[i].getEmailAddress() << endl;
 
 
 		//Writing address attribute	
-		output_file << contacts_list[i].getAddress()->getHouse() << "\t"
-			<< contacts_list[i].getAddress()->getStreet() << "\t"
-			<< contacts_list[i].getAddress()->getCity() << "\t"
+		output_file << contacts_list[i].getAddress()->getHouse() << " "
+			<< contacts_list[i].getAddress()->getStreet() << " "
+			<< contacts_list[i].getAddress()->getCity() << " "
 			<< contacts_list[i].getAddress()->getCountry() << endl;
 
 	}

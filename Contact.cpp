@@ -12,7 +12,10 @@ Contact::Contact(const string first_name, const string last_name, const string m
 	this->address = a_address->copy_address();
 }
 
-Contact::Contact() :address(nullptr) {}
+Contact::Contact()
+{
+	address = new Address;
+}
 
 Contact::~Contact()
 {

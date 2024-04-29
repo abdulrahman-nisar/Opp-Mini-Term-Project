@@ -6,7 +6,7 @@
 
 
 const string file_name_G = "ContactList.txt";
-Address* inputAddress();		//Always return an address of an address object. You can't use this functions on static objects
+void inputAddress(Address* address);		//Always return an address of an address object. You can't use this functions on static objects
 void inputContact(Contact& contact);		//This funtion will input values in a contact object
 
 
