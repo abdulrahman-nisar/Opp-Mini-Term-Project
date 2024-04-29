@@ -244,7 +244,7 @@ void ContactsBook::merge_duplicates()		//THis function will find and merge dubli
 			}
 		}
 	}
-	if (flag = false)
+	if (flag == true)
 	{
 		resize_list(size_of_contacts);
 
