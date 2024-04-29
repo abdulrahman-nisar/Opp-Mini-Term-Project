@@ -76,7 +76,6 @@ Contact* ContactsBook::search_contact(std::string first_name, std::string last_n
 	
 	Contact* contact_ptr = new Contact;
 	contact_ptr->setAddressToNull();
-	contact_ptr->setAddress(nullptr);
 	for (int i = 0; i < contacts_count; i++)
 	{
 		if (contacts_list[i].getFirstName() == first_name && contacts_list[i].getLastName() == last_name)
