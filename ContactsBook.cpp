@@ -68,13 +68,15 @@ void ContactsBook::resize_list(const int size_for_new_array)
 
 Contact* ContactsBook::search_contact(std::string first_name, std::string last_name)
 {
-	
-	if (total_contacts() == 0)		//Checking for empty contact list
+	if (total_contacts() == 0)	//Checking for empty contact list
 	{
 		cout << "No Contatacts in Contact Book\n";
 		return nullptr;
 	}
+	
 	Contact* contact_ptr = new Contact;
+	contact_ptr->setAddressToNull();
+	contact_ptr->setAddress(nullptr);
 	for (int i = 0; i < contacts_count; i++)
 	{
 		if (contacts_list[i].getFirstName() == first_name && contacts_list[i].getLastName() == last_name)
@@ -83,7 +85,7 @@ Contact* ContactsBook::search_contact(std::string first_name, std::string last_n
 			return contact_ptr;
 		}
 	}
-
+	cout << "Not Found\n";
 	return nullptr;//if no contact is found of first_name and last_name
 
 	
@@ -97,6 +99,7 @@ Contact* ContactsBook::search_contact(std::string phone)
 		return nullptr;
 	}
 	Contact* contact_ptr = new Contact;
+	contact_ptr->setAddressToNull();
 	for (int i = 0; i < contacts_count; i++)
 	{
 		if ((contacts_list[i].getMobileNumber()) == phone)
@@ -106,7 +109,7 @@ Contact* ContactsBook::search_contact(std::string phone)
 		}
 	}
 
-
+	cout << "Not Found\n";
 	return nullptr;// if no contact is found of that phone number
 	/*
 	*	Remove this return nullptr; before writing your code
@@ -122,6 +125,7 @@ Contact* ContactsBook::search_contact(Address* address)
 		return nullptr;
 	}
 	Contact* contact_ptr = new Contact;
+	contact_ptr->setAddressToNull();
 	for (int i = 0; i < contacts_count; i++)
 	{
 		if (contacts_list[i].getAddress()->equals(address))
@@ -268,12 +272,12 @@ void ContactsBook::load_from_file(std::string file_name)
 	string house, street, city, country;
 	
 	
-	//if (!(input_file >> contacts_count))		//Checking if the file has anything at all
-	//{
-	//	cout << "Error reading contacts count from file.\n";
-	//	return;
-	//}
-	input_file >> contacts_count;
+	if (!(input_file >> contacts_count))		//Checking if the file has anything at all
+	{
+		cout << "Error reading contacts count from file.\n";
+		return;
+	}
+
 	this->size_of_contacts = contacts_count+5;
 	this->contacts_list = new Contact[size_of_contacts];
 

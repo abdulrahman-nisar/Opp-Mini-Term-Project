@@ -47,6 +47,7 @@ int main()
 		}
 	}while (*flag == true);
 	delete flag;
+	cout << endl << endl;
 	workingInContactBookMenu(contact_book);
 
 	delete contact_book;
@@ -71,6 +72,7 @@ void workingInSorting(ContactsBook* contact_book)
 
 void workingInSearching(ContactsBook* contact_book)
 {
+	Contact* contact_ptr = nullptr;
 	int choice;
 	string first_name = "NULL", last_name = "NULL", phone_number = "NULL";
 	do
@@ -90,7 +92,7 @@ void workingInSearching(ContactsBook* contact_book)
 			{
 				getline(cin, first_name);
 
-			} while (isStringOnlyAlphabets(first_name) || isEmpty(first_name));
+			} while (isStringOnlyAlphabets(first_name));
 
 
 			cout << "Enter the last name of the contact to search:" << endl;
@@ -98,10 +100,15 @@ void workingInSearching(ContactsBook* contact_book)
 			{
 				getline(cin, last_name);
 
-			} while (isStringOnlyAlphabets(last_name) || isEmpty(last_name));
+			} while (isStringOnlyAlphabets(last_name));
 
 
-			contact_book->search_contact(first_name, last_name)->printContact();
+			contact_ptr = contact_book->search_contact(first_name, last_name);
+			if (contact_ptr != nullptr)
+			{
+				contact_ptr->printContact();
+				delete contact_ptr;
+			}
 
 			break;
 
@@ -112,10 +119,16 @@ void workingInSearching(ContactsBook* contact_book)
 			{
 				getline(cin, phone_number);
 
-			} while (isLengthOfMobileNumberIs11(phone_number) || isEmpty(phone_number));
+			} while (isLengthOfMobileNumberIs11(phone_number));
 
 
-			contact_book->search_contact(phone_number)->printContact();
+			
+			contact_ptr = contact_book->search_contact(phone_number);;
+			if (contact_ptr != nullptr)
+			{
+				contact_ptr->printContact();
+				delete contact_ptr;
+			}
 
 			break;
 
@@ -123,8 +136,12 @@ void workingInSearching(ContactsBook* contact_book)
 
 			address = new Address;
 			inputAddress(address);
-			contact_book->search_contact(address);
-
+			contact_ptr	= contact_book->search_contact(address);
+			if (contact_ptr != nullptr)
+			{
+				contact_ptr->printContact();
+				delete contact_ptr;
+			}
 			break;
 
 		default:
@@ -169,8 +186,13 @@ void workingInContactBookMenu(ContactsBook* contact_book)
 			break;
 
 		case 6:
+			if (contact_book->total_contacts() < 1)
+			{
+				cout << "Not enough contacts to perform Searching.\n";
+				break;
+			}
 
-			workingInSorting(contact_book);
+			workingInSearching(contact_book);
 			break;
 
 		case 7:
@@ -190,6 +212,7 @@ void workingInContactBookMenu(ContactsBook* contact_book)
 
 
 		}
+		cout << endl << endl;
 
 	}
 }

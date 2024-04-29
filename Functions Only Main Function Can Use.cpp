@@ -85,7 +85,8 @@ void displayContactBookMenu()
 		<< "5. Print Contacts." << endl
 		<< "6. Search Contacts." << endl
 		<< "7. Display Cout of Contacts." << endl
-		<< "8. Exit." << endl << endl;
+		<< "8. Exit." << endl
+		<< "Enter your choice: ";
 	
 }
 
@@ -94,7 +95,8 @@ void displaySearchMenu()
 	cout << "Enter the choice how you want to search the contact:" << endl
 		<< "1. Search contact by First_Name and Last_Name." << endl
 		<< "2. Search contact by Phone_Number." << endl
-		<< "3. Search contact by Address." << endl;
+		<< "3. Search contact by Address." << endl
+		<< "Enter your choice: ";
 
 }
 
@@ -104,7 +106,8 @@ void displayStartUpMenu()
 	cout << "<---------Menu of ContactsBook Application--------->" << endl
 		<< "1. Create a new Contact Book. " << endl
 		<< "2. Load From File" << endl
-		<< "3. Exit." << endl;
+		<< "3. Exit." << endl
+		<< "Enter you choice: ";
 }
 
 
