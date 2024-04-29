@@ -76,7 +76,10 @@ Address* Contact::getAddress() const		//This will return the refrencde of addres
 
 void Contact::copy_contact(const Contact& contact)	//It will recieve contact object and deep copy it to *this object
 {
-	
+	if (address != nullptr)
+	{
+		delete this->address;
+	}
 	this->first_name = contact.first_name;
 	 this->last_name = contact.last_name;
 	 this->mobile_number = contact.mobile_number;

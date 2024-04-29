@@ -165,10 +165,7 @@ ContactsBook::ContactsBook() :
 void ContactsBook::print_contacts_sorted(int choice)		//Make a copy of all contacts. Sort it then display it.
 {
 	
-	if (total_contacts() <= 1)
-	{
-		cout << "Not enough contacts to perform sorting\n";
-	}
+	
 	if (checkSortingChoice(choice) == 1)
 	{
 		Contact* temp_contact_list = new Contact[contacts_count];

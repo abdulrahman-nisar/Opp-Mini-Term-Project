@@ -49,7 +49,7 @@ int main()
 	delete flag;
 	workingInContactBookMenu(contact_book);
 
-	
+	delete contact_book;
 	system("pause");
 	return 0;
 }
@@ -156,24 +156,28 @@ void workingInContactBookMenu(ContactsBook* contact_book)
 			contact_book->save_to_file(file_name_G);
 			break;
 		case 4:
+			if (contact_book->total_contacts() <= 1)
+			{
+				cout << "Not enough contacts to perform sorting\n";
+				break;
+			}
+			workingInSorting(contact_book);
+			break;
+
+		case 5:
+			contact_book->displayContacts();
+			break;
+
+		case 6:
 
 			workingInSorting(contact_book);
 			break;
 
 		case 7:
-			contact_book->displayContacts();
-			break;
-
-		case 8:
-
-			workingInSorting(contact_book);
-			break;
-
-		case 9:
 			cout << "Count of Contacts till now is " << contact_book->total_contacts() << "." << endl;
 			break;
 
-		case 10:
+		case 8:
 			if (contact_book != nullptr)
 			{
 				delete contact_book;
