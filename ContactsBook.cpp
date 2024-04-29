@@ -246,6 +246,7 @@ void ContactsBook::merge_duplicates()		//THis function will find and merge dubli
 	}
 	if (flag == true)
 	{
+		cout << "Merge successfully!" << endl;
 		resize_list(size_of_contacts);
 
 	}
