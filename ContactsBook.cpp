@@ -225,7 +225,7 @@ void ContactsBook::sort_contacts_list(Contact *contacts_list, int choice)		//Sor
 
 void ContactsBook::merge_duplicates()		//THis function will find and merge dublicates
 {
-	
+	bool flag = false;
 	 
 	if (contacts_count == 0 || contacts_count == 1)			//Checking for enough contacts to exist for merging
 	{
@@ -240,10 +240,19 @@ void ContactsBook::merge_duplicates()		//THis function will find and merge dubli
 			{
 				contacts_list[j].swapContact(contacts_list[contacts_count - 1]);
 				contacts_count--;
+				flag = true;			//A contactis found that can be merged
 			}
 		}
 	}
-	resize_list(size_of_contacts);
+	if (flag = false)
+	{
+		resize_list(size_of_contacts);
+
+	}
+	else
+	{
+		cout << "Not Any Contact to merge\n";
+	}
 	
 	// Implement this function that finds and merges all the duplicates
 	// Duplicate means exact equal
