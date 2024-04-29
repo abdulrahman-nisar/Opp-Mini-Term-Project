@@ -9,15 +9,6 @@ void ContactsBook::add_contact()			//Add a new contact
 		inputContact(contacts_list[contacts_count]);
 		contacts_count++;
 
-	/*
-		- Check if the list is full, if it is full call the resize function
-		- If list is not full add the contact to the end of the array 
-		- (end means the place where last contact was inserted)
-		- At start it will be 0th index as no contact has been inserted before so 
-		- count is zero (contacts_count member)
-		- Increment the count
-		- As inserted successfully, return 1
-	*/
 }
 
 int ContactsBook::total_contacts() const		//return total number of contacts added till now
@@ -55,15 +46,6 @@ void ContactsBook::resize_list(const int size_for_new_array)
 	delete[] contacts_list;
 	contacts_list = temp_contacts_list;
 
-	/*
-	//*	Here you will resize the contact list, see example code given in lab manual to see how to resize arrays
-	*	You will allocate a temporary new array of double the current size and copy the contacts from 
-	*       previous array to this array one by one, get the copy of each contact using copy_contact 
-	*       function of Contact class
-	*	Delete the previous array
-	*	Assign the new temporary array to the contacts_list pointer
-	*	Updated the this->size_of_contacts with new size
-	*/
 }
 
 Contact* ContactsBook::search_contact(std::string first_name, std::string last_name)
@@ -110,9 +92,7 @@ Contact* ContactsBook::search_contact(std::string phone)
 
 	cout << "Not Found\n";
 	return nullptr;// if no contact is found of that phone number
-	/*
-	*	Remove this return nullptr; before writing your code
-	*/
+	
 	
 }
 
@@ -136,9 +116,7 @@ Contact* ContactsBook::search_contact(Address* address)
 
 	cout << "Not Found\n";
 	return nullptr;//if no any contact is found of address
-	/*
-	*	Remove this return nullptr; before writing your code
-	*/
+	
 
 }
 
@@ -185,14 +163,7 @@ void ContactsBook::print_contacts_sorted(int choice)		//Make a copy of all conta
 		delete[] temp_contact_list;
 	}
 	
-	/*
-	*	Create a copy of this->contacts_list array here (do it by creating a new function that returns copy)
-	*	Call the sort function sort_contacts_list to sort the newly created copy
-	*	This copy is created to avoid changing the original insertion order of contact list
-	*	Then print the contacts in following format:
-	*	[First Name] [Last Name] [Mobile] [Email]
-	*	Call the address print function to print address on next line
-	*/
+	
 }
 
 void ContactsBook::sort_contacts_list(Contact *contacts_list, int choice)		//Sort the contacts accorfing to first name or last name
@@ -309,13 +280,7 @@ void ContactsBook::load_from_file(std::string file_name)
 	input_file.close();
 
 	cout << "File loaded Successfully!" << endl;
-	/*
-	*	Read contacts back from file in the same format	
-	*	Read the contacts_count, and run a loop for this contacts_count and read the 
-	*	contacts in the same format as you stored
-	*	Add them to contact book (this.add_contact function can be used)
-	*	Finally, close the file
-	*/
+	
 }
 
 
@@ -363,17 +328,7 @@ void ContactsBook::save_to_file(std::string file_name)
 	output_file.close();
 
 	cout << endl << "Contacts have been stored to the file." << endl;
-	/*
-	*	In this function you will store all the contacts to a file
-	*	On first line store contacts_count
-	*	On next lines store contacts in the following format:
-	*       2 lines for each contact
-	*       On oneline write contact attributes(except address) in comma separated format. On second line
-	*	store address atributes in the same format
-	*	first_name,last_name,mobile_number,email_address
-	*	house,street,city,country
-	*	Close the file
-	*/
+	
 }
 
 void ContactsBook::displayContacts() const
