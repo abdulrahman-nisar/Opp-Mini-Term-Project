@@ -67,6 +67,7 @@ void workingInSorting(ContactsBook* contact_book)
 		<< "2. Sort by last name." << endl;
 	cin >> choice;
 	checkInput(choice);//Check for error
+	cin.ignore();
 	contact_book->print_contacts_sorted(choice);
 }
 
@@ -81,7 +82,7 @@ void workingInSearching(ContactsBook* contact_book)
 		cin >> choice;
 		Address* address = nullptr;
 		checkInput(choice);//for error checking
-
+		cin.ignore();
 		switch (choice)
 		{
 
