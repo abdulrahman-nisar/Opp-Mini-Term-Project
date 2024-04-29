@@ -84,7 +84,7 @@ void displayContactBookMenu()
 		<< "4. Print Contacts Sorted." << endl
 		<< "5. Print Contacts." << endl
 		<< "6. Search Contacts." << endl
-		<< "7. Display Cout of Contacts." << endl
+		<< "7. Display Conut of Contacts." << endl
 		<< "8. Exit." << endl
 		<< "Enter your choice: ";
 	

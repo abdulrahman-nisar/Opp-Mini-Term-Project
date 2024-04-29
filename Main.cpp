@@ -64,7 +64,8 @@ void workingInSorting(ContactsBook* contact_book)
 {
 	int choice;
 	cout << "1. Sort by first name." << endl
-		<< "2. Sort by last name." << endl;
+		<< "2. Sort by last name." << endl
+		<< "Please Enter your choice: ";
 	cin >> choice;
 	checkInput(choice);//Check for error
 	cin.ignore();
