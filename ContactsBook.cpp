@@ -194,7 +194,7 @@ void ContactsBook::sort_contacts_list(Contact *contacts_list, int choice)		//Sor
 	
 }
 
-void ContactsBook::merge_duplicates()		//THis function will find and merge dublicates
+void ContactsBook::merge_duplicates()//THis function will find and merge dublicates
 {
 	bool flag = false;
 	 
