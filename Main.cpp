@@ -1,6 +1,7 @@
 #include "ContactsBook.h"
 #include "Functions Only Main Function Can Use.h"
 
+//Global Variables
 void workingInSorting(ContactsBook* contact_book);
 void workingInSearching(ContactsBook* contact_book);
 
